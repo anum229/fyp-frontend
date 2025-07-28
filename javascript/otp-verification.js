@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            const response = await fetch("http://localhost:5000/api/otp/verify", {
+            const response = await fetch("https://fyp-backend-8mc0.onrender.com/api/otp/verify", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, role, otp }),
