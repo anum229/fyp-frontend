@@ -3,7 +3,7 @@
     console.log("Events and Competitions script loaded successfully");
     
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const API_URL = `${BASE_URL}/api/events`;
 
     // ====================== Date Utilities ======================

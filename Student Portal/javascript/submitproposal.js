@@ -50,7 +50,7 @@ async function checkProposalStatus() {
             return;
         }
 
-        const response = await fetch("http://localhost:5000/api/proposals/status", {
+        const response = await fetch("https://fyp-backend-8mc0.onrender.com/api/proposals/status", {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`
@@ -155,7 +155,7 @@ async function confirmSubmission() {
     formData.append("pdf", fileInput.files[0]);
 
     try {
-        const response = await fetch("http://localhost:5000/api/proposals/submit", {
+        const response = await fetch("https://fyp-backend-8mc0.onrender.com/api/proposals/submit", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${token}`

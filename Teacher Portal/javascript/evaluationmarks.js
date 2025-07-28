@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const SUPERVISOR_GROUPS_API = `${BASE_URL}/api/evaluations/supervisor/groups`;
     const SAVE_EVALUATION_API = `${BASE_URL}/api/evaluations/supervisor/evaluate`;
     const FYP_EVALUATIONS_API = `${BASE_URL}/api/evaluations/supervisor/fyp-evaluations`;

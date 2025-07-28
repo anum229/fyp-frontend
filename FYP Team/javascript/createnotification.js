@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://fyp-backend-8mc0.onrender.com';
 const NOTIFICATIONS_API = `${API_BASE_URL}/api/notifications`;
 
 // DOM Elements

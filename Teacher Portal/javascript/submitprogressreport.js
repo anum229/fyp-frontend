@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const PROGRESS_REPORT_API = `${BASE_URL}/api/progress-reports`;
     const token = localStorage.getItem("authToken");    
     // Current state

@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const PROPOSAL_STATUS_API = `${BASE_URL}/api/proposals/status`;
     const STUDENT_INFO_API = `${BASE_URL}/api/students`;
     const GROUP_LEADER_API = `${BASE_URL}/api/students/groupleader`;

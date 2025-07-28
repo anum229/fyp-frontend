@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const CHANGE_PASSWORD_API = `${BASE_URL}/api/auth/change-password`;
     const EDUCATION_EXPERTISE_API = `${BASE_URL}/api/teachers/education-expertise/me`;
     const EXPERTISE_OPTIONS_API = `${BASE_URL}/api/teachers/education-expertise/options`;

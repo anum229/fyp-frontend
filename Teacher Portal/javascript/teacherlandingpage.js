@@ -1,5 +1,5 @@
 // Define base URL for API requests
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
 
 // Function to display the current date
 function displayCurrentDate() {

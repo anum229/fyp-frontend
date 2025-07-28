@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const API_URL = `${BASE_URL}/api/proposals/all`;
     const FYP_REVIEW_API = `${BASE_URL}/api/proposals/fyp-review/`;
     const AI_REVIEW_BULK_API = `${BASE_URL}/api/proposals/ai-review-bulk`;

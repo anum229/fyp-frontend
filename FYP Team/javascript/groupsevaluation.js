@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const EVALUATIONS_API = `${BASE_URL}/api/evaluations`;
     const SUPERVISOR_EVALUATIONS_API = `${BASE_URL}/api/evaluations/fyp/supervisor-evaluations`;
     const token = window.AUTH_TOKEN?.replace('Bearer ', '') || localStorage.getItem('authToken');

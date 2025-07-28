@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const TEACHER_GROUPS_API = `${BASE_URL}/api/teachers/my-groups`;
     const GROUP_LEADER_EMAIL_API = `${BASE_URL}/api/teachers/supervising-group-leader-email`;
     const UPCOMING_EVENTS_API = `${BASE_URL}/api/teachers/dashboard/upcoming`;
