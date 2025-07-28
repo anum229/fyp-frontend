@@ -1,0 +1,410 @@
+/* Basic styling for the Funded Projects page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Container */
+.funded-projects-container {
+    width: 80%; /* Adjusted for smaller screens */
+    margin: 60px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px; /* Default font size */
+    margin-bottom: 20px;
+}
+
+/* Search Bar and Add Project Button */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#searchBar {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+#searchBar:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+#addProjectBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+#addProjectBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+.table-wrapper {
+    overflow-x: auto; /* Allow horizontal scrolling on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #ddd;
+}
+
+/* Modal Styling */
+/* Modal Styling */
+.modal {
+    display: none; /* Hide by default */
+    position: fixed; /* Fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half the width and height to fully center */
+    width: 400px; /* Adjust width as needed */
+    background-color: white;
+    z-index: 1000; /* Ensure it appears on top */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Optional: for rounded corners */
+    max-height: 80vh; /* Limit height for mobile screens */
+    overflow-y: auto; /* Make modal scrollable if content exceeds height */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Ensure it appears below the modal but above everything else */
+}
+
+/* Adjust Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Limit maximum width */
+    box-sizing: border-box;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #007bff;
+    font-size: 24px; /* Default font size */
+    margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px; /* Default font size */
+    color: #333; /* Darker text for better readability */
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px; /* Slightly larger padding for better touch interaction */
+    margin-bottom: 15px; /* Add more spacing between inputs */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 14px; /* Consistent font size */
+}
+
+.modal-content input:focus {
+    outline: none;
+    border: 2px solid #007bff; /* Highlight input on focus */
+}
+
+.modal-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; /* Full width for smaller screens */
+    margin-top: 10px; /* Add spacing */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+#saveProjectBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#saveProjectBtn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+#closeModalBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+#closeModalBtn:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+}
+
+#closeModalBtn:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+}
+
+.actions {
+    cursor: pointer;
+}
+
+/* Group Member GL Styling */
+table td div {
+    margin-bottom: 8px; /* Adjust this value to control the spacing */
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center the GL tag with the text */
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+/* GL Tag Styling */
+.gl-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+    vertical-align: middle; /* Align with the text */
+    display: inline-block; /* Ensure it stays inline */
+    flex-shrink: 0; /* Prevent the GL tag from shrinking */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .funded-projects-container {
+        width: 90%;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #searchBar {
+        width: 60%; /* Adjust search bar width */
+    }
+
+    #addProjectBtn {
+        width: auto; /* Reset width for inline display */
+    }
+}
+
+@media (max-width: 992px) {
+    .funded-projects-container {
+        width: 95%;
+        padding: 15px;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .modal-content {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .funded-projects-container {
+        width: 95%;
+        margin: 20px auto 80px auto;
+        padding: 10px;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .search-container {
+        flex-direction: column; /* Stack search bar and button vertically */
+    }
+
+    #searchBar {
+        width: 100%; /* Full width for smaller screens */
+        font-size: 12px; /* Adjusted font size */
+    }
+
+    #addProjectBtn {
+        width: 100%; /* Full width for smaller screens */
+        font-size: 16px; /* Adjusted font size */
+        margin-top: 15px; /* Add spacing */
+    }
+
+    .modal-content {
+        width: 100%;
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .modal-content h2 {
+        font-size: 20px; /* Smaller heading for mobile */
+    }
+
+    .modal-content label {
+        font-size: 13px; /* Smaller label text */
+    }
+
+    .modal-content input {
+        font-size: 14px; /* Smaller input text */
+    }
+
+    .modal-content button {
+        font-size: 13px; /* Smaller button text */
+    }
+}
+
+@media (max-width: 576px) {
+    .funded-projects-container {
+        margin: 20px auto 60px auto;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .modal-content {
+        width: 100%;
+        padding: 10px; /* Further reduce padding for very small screens */
+    }
+
+    .modal {
+        width: 80%; /* Adjusted modal width for very small screens */
+        margin-top: 50px; /* Adjusted top margin for better positioning */
+    }
+
+    .modal-content h2 {
+        font-size: 18px; /* Smaller heading for very small screens */
+    }
+
+    .modal-content label {
+        font-size: 12px; /* Smaller label text */
+    }
+
+    .modal-content input {
+        font-size: 12px; /* Smaller input text */
+    }
+
+    .modal-content button {
+        font-size: 12px; /* Smaller button text */
+    }
+
+    #addProjectBtn {
+        font-size: 13px; /* Adjusted font size */
+        margin-top: 10px; /* Adjusted spacing */
+    }
+
+    #searchBar {
+        font-size: 13px; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 400px) {
+    .funded-projects-container {
+        margin: 20px auto 60px auto;
+        width: 95%;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .modal-content {
+        width: 100%;
+        padding: 8px; /* Minimal padding for very small screens */
+    }
+
+    .modal {
+        width: 80%; /* Adjusted modal width for very small screens */
+        margin-top: 50px; /* Adjusted top margin for better positioning */
+    }
+
+    .modal-content h2 {
+        font-size: 16px; /* Smaller heading for very small screens */
+    }
+
+    .modal-content label {
+        font-size: 11px; /* Smaller label text */
+    }
+
+    .modal-content input {
+        font-size: 11px; /* Smaller input text */
+    }
+
+    .modal-content button {
+        font-size: 11px; /* Smaller button text */
+    }
+
+    #addProjectBtn {
+        font-size: 12px; /* Adjusted font size */
+        margin-top: 10px; /* Adjusted spacing */
+    }
+
+    #searchBar {
+        font-size: 12px; /* Adjusted font size */
+    }
+}

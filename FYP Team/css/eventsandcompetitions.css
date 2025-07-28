@@ -1,0 +1,393 @@
+/* ==================== */
+/* GENERAL STYLES */
+/* ==================== */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==================== */
+/* MAIN CONTAINER */
+/* ==================== */
+.container {
+    width: 80%;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+/* ==================== */
+/* HEADING */
+/* ==================== */
+.page-heading {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ==================== */
+/* SEARCH CONTAINER */
+/* ==================== */
+.search-container {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#searchBar {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.add-event-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.add-event-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ==================== */
+/* EVENTS SECTIONS */
+/* ==================== */
+.events-section, .past-events-section {
+    margin: 30px 0;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-top: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* ==================== */
+/* EVENT CARDS */
+/* ==================== */
+.event-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+    flex: 0 0 150px;
+    margin-right: 20px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-date, .event-venue {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+}
+
+.event-winner {
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+.event-description {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #777;
+}
+
+.event-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn {
+    background-color: #28a745;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+/* ==================== */
+/* MODAL STYLES */
+/* ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#modalTitle {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], 
+input[type="date"], 
+input[type="time"],
+textarea {
+    width: 95%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 150px;
+    display: block;
+    margin: 10px auto;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover {
+    background-color: #da0e23;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* ==================== */
+/* RESPONSIVE DESIGN */
+/* ==================== */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+
+    .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .event-actions {
+        margin-left: 0;
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .modal-content {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #searchBar {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .add-event-btn {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+        margin: 30px auto;
+    }
+
+    .page-heading {
+        font-size: 24px;
+    }
+
+    .event-title {
+        font-size: 18px;
+    }
+
+    .event-date, .event-venue {
+        font-size: 13px;
+    }
+
+    .event-winner {
+        font-size: 14px;
+    }
+
+    .event-description {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 85%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .page-heading {
+        font-size: 22px;
+    }
+
+    .event-title {
+        font-size: 16px;
+    }
+
+    .event-date, .event-venue {
+        font-size: 12px;
+    }
+
+    .event-winner {
+        font-size: 13px;
+    }
+
+    .event-description {
+        font-size: 13px;
+    }
+
+    .modal-content {
+        width: 85%;
+        margin: 10% auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .cancel-btn, .submit-btn {
+        width: 100%;
+    }
+}

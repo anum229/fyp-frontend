@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - Key Insights</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/keyinsightsstudent.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <h1>Key Insights</h1>
+
+    <!-- Main Content Wrapper -->
+    <div class="content-wrapper">
+        <div class="top-section">
+            <!-- Personal Details -->
+            <div class="card">
+                <h2><i class="fas fa-user"></i> Personal Details</h2>
+                <p><i class="fas fa-user-tag icon-fixed"></i> <span class="label">Full Name:</span> <span id="fullName"></span></p>
+                <p><i class="fas fa-id-card icon-fixed"></i> <span class="label">Roll Number:</span> <span id="rollNumber"></span></p>
+                <p><i class="fas fa-calendar icon-fixed"></i> <span class="label">Batch:</span> <span id="batch"></span></p>
+                <p><i class="fas fa-building icon-fixed"></i> <span class="label">Department:</span> <span id="department"></span></p>
+                <p><i class="fas fa-envelope icon-fixed"></i> <span class="label">Email:</span> <span id="email"></span></p>
+                <p><i class="fas fa-user-shield icon-fixed"></i> <span class="label">Student Role:</span> <span id="studentRole"></span></p>
+            </div>
+
+            <!-- Group Details -->
+            <div class="card">
+                <h2><i class="fas fa-users"></i> Group Details</h2>
+                <p><i class="fas fa-fingerprint icon-fixed"></i> <span class="label">Group ID:</span> <span id="groupId"></span></p>
+                <p><i class="fas fa-lightbulb icon-fixed"></i> <span class="label">Project Title:</span> <span id="projectTitle"></span></p>
+                <p><i class="fas fa-file-alt icon-fixed"></i> <span class="label">Project Proposal:</span> <a id="proposalLink" class="pdf-link"></a></p>
+                <p><i class="fas fa-chalkboard-teacher icon-fixed"></i> <span class="label">Assigned Supervisor:</span> <span id="assignedTeacher"></span></p>
+                <p><i class="fas fa-user-graduate icon-fixed"></i> <span class="label">Assigned Co-Advisor:</span> <span id="assignedCoAdvisor"></span></p>
+                <p><i class="fas fa-flag icon-fixed"></i> <span class="label">Project Proposal Status:</span> <span id="projectStatus"></span></p>
+                <p><i class="fas fa-user-friends icon-fixed"></i> <span class="label">Group Members:</span> <span id="groupMembers"></span></p>
+                <p><i class="fas fa-user-circle icon-fixed"></i> <span class="label">Group Leader Email:</span> <span id="groupLeaderEmail"></span></p>
+            </div>
+        </div>
+
+        <!-- Upcoming Events -->
+        <div class="events-container">
+            <h2><i class="fas fa-calendar-alt"></i> Upcoming Events</h2>
+            <ul>
+                <!-- Events will be dynamically inserted here by JavaScript -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="javascript/keyinsightsstudent.js"></script>
+
+</body>
+</html>

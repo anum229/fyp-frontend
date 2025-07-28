@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Meeting</title>
+    <link rel="stylesheet" href="css/schedulemeetings.css">
+</head>
+<body>
+    <div class="schedule-container">
+        <h1>Schedule Meeting</h1>
+
+        <!-- Group Info Card -->
+        <div class="card">
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="card-label">Group ID:</span>
+                    <span class="card-value" id="groupID"></span>
+                </div>
+                <div class="card-item">
+                    <span class="card-label">Project Title:</span>
+                    <span class="card-value" id="projectTitle"></span>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="card-label">Supervisor Name:</span>
+                    <span class="card-value" id="supervisorName"></span>
+                </div>
+                <div class="card-item">
+                    <span class="card-label">Supervisor Email:</span>
+                    <span class="card-value" id="supervisorEmail"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Group Members Card -->
+        <div class="card">
+            <div class="card-row">
+                <div class="card-item full-width">
+                    <span class="card-label">Group Members:</span>
+                    <div class="card-value" id="groupMembers"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Details Card -->
+        <div class="card">
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="card-label">Venue:</span>
+                    <select id="venue">
+                        <option value="">Select Venue</option>
+                    </select>
+                </div>
+            </div>
+            <div class="card-row">
+                <div class="card-item">
+                    <span class="card-label">Start Date & Time:</span>
+                    <input type="datetime-local" id="startDateTime">
+                </div>
+                <div class="card-item">
+                    <span class="card-label">End Date & Time:</span>
+                    <input type="datetime-local" id="endDateTime">
+                </div>
+            </div>
+            <button class="send-notification-btn">Schedule Meeting</button>
+        </div>
+    </div>
+    <script src="javascript/schedulemeetings.js"></script>
+</body>
+</html>

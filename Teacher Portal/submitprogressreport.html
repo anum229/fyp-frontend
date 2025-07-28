@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Progress Report</title>
+    <link rel="stylesheet" href="css/submitprogressreport.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <form id="progress-report-form">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Submit Progress Report</h1>
+            </div>
+
+            <!-- Report Period Selection -->
+            <div class="report-period-section">
+                <label for="report-period" class="report-period-label">Select Report Period:</label>
+                <input type="month" id="start-period" required /> - 
+                <input type="month" id="end-period" required />
+            </div>
+
+            <!-- File Upload and Additional Comments Section -->
+            <div class="file-upload-section">
+                <label for="file-upload" class="upload-label">Upload PDF File:</label>
+                <input type="file" id="file-upload" accept="application/pdf" required />
+                <div id="file-message"></div>
+            </div>
+
+            <div class="additional-comments">
+                <label for="comments" class="comments-label">Comments:</label>
+                <textarea id="comments" placeholder="Enter any additional comments..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Submit</button>
+
+            <div class="edit-buttons" style="display: none;">
+                <button type="button" class="cancel-btn">Cancel</button>
+                <button type="button" class="save-btn">Save</button>
+            </div>
+
+            <!-- Submitted Reports Section -->
+            <div class="submitted-reports">
+                <h2>
+                    <span>Submitted Reports</span>
+                    <button id="toggle-reports-btn">View Submitted Reports</button>
+                </h2>
+                <ul id="reports-list" class="hidden">
+                    <!-- Submitted reports will be dynamically added here -->
+                </ul>
+            </div>
+        </form>
+    </div>
+
+    <script src="javascript/submitprogressreport.js"></script>
+</body>
+</html>

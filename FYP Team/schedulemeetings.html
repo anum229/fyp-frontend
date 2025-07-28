@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Meetings</title>
+    <link rel="stylesheet" href="css/schedulemeetings.css">
+</head>
+<body>
+    <div class="schedule-container">
+        <h1>Schedule Meetings</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search by Group ID">
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+            <table id="scheduleTable">
+                <thead>
+                    <tr>
+                        <th>Group ID</th>
+                        <th>Project Title</th>
+                        <th>Group Members</th>
+                        <th>Supervisor Name</th>
+                        <th>Co-Advisor Name</th>
+                        <th>Start Date & Time</th>
+                        <th>End Date & Time</th>
+                        <th>Venue</th>
+                        <th>Schedule Meeting</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic rows will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Venue Selection Modal -->
+    <div id="venueModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select Venue</h2>
+            <div class="venue-cards-container" id="venueCards">
+                <!-- Venue cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/schedulemeetings.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submissions and Feedback</title>
+    <link rel="stylesheet" href="css/submissionsandfeedback.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Centered Page Heading -->
+        <h1>Create & Assign Task</h1>
+
+        <!-- Task Creation Section -->
+        <section class="task-creation">
+            <h2>Create Task</h2>
+            <div class="task-inline">
+                <input type="text" id="task-title" placeholder="Task Title" />
+                <input type="datetime-local" id="task-deadline" step="900" />
+                <select id="student-select">
+                    <option value="2021F-BCE-192">2021F-BCE-192</option>
+                    <option value="2021F-BCE-221">2021F-BCE-221</option>
+                    <option value="2021F-BCE-222">2021F-BCE-222</option>
+                    <option value="2021F-BCE-240">2021F-BCE-240</option>
+                </select>
+            </div>
+            <textarea id="task-description" placeholder="Task Description"></textarea>
+            <button id="create-task-btn">Create Task</button>
+        </section>
+
+        <!-- Created Tasks Section -->
+        <section class="created-tasks">
+            <h2>Created Tasks 
+                <button id="toggle-created-tasks">Show Created Tasks</button>
+            </h2>
+            <div id="created-task-container" class="hidden">
+                <!-- Dynamic Section for Created Tasks -->
+            </div>
+        </section>
+
+        <!-- Student Submissions Section -->
+        <section class="student-submissions">
+            <h2>Student Submissions 
+                <button id="toggle-submissions">Show Submissions</button>
+            </h2>
+            <div id="submission-container" class="hidden">
+                <!-- Dynamic Section for Each Student's Submission -->
+            </div>
+        </section>
+    </div>
+
+    <script src="javascript/submissionsandfeedback.js"></script>
+</body>
+</html>

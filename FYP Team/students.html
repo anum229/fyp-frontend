@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students Management</title>
+    <link rel="stylesheet" href="css/students.css">
+</head>
+<body>
+    <div class="funded-projects-container">
+        <h1>Students Management</h1>
+
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search...">
+            <button id="addStudentBtn">Add Students</button>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="studentsTable">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Full Name</th>
+                        <th>Batch</th>
+                        <th>Department</th>
+                        <th>Roll Number</th>
+                        <th>Group ID</th>
+                        <th>Role</th>
+                        <th>Email Address</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Add Student Modal -->
+        <div class="modal" id="addStudentModal">
+            <div class="modal-content">
+                <h2>Add Student</h2>
+                <label for="studentName">Full Name:</label>
+                <input type="text" id="studentName">
+                <label for="batch">Batch:</label>
+                <input type="text" id="batch">
+                <label for="department">Department:</label>
+                <input type="text" id="department">
+                <label for="rollNumber">Roll Number:</label>
+                <input type="text" id="rollNumber">
+                <label for="groupID">Group ID:</label>
+                <input type="text" id="groupID">
+                <label for="role">Role:</label>
+                <select class="roles-dropdown" id="role">
+                    <option value="Member">Member</option>
+                    <option value="Group Leader">Group Leader</option>
+                </select>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email">
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password">
+                    <span id="password-eye-icon" onclick="toggleModalPasswordVisibility()" style="cursor: pointer;">👁️</span>
+                </div>
+                <!-- Wrap Save and Cancel buttons in a container -->
+                <div class="button-container">
+                    <button id="closeModalBtn">Cancel</button>
+                    <button id="saveStudentBtn">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Upload Modal -->
+        <div class="modal" id="bulkUploadModal">
+            <div class="modal-content">
+                <h2 style="color: #007bff;">Bulk Upload</h2>
+                <input type="file" id="csvFileInput" accept=".csv">
+                <p id="selectedFileName" style="margin: 10px 0; font-size: 14px; color: #555;"></p>
+                <div class="button-container">
+                    <button id="closeBulkUploadModalBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Options Modal (Bulk Upload or Add Manually) -->
+        <div class="modal" id="addOptionsModal">
+            <div class="modal-content">
+                <h2 style="color: #007bff;">Add Students</h2>
+                <div class="button-container">
+                    <button id="bulkUploadOptionBtn">Bulk Upload</button>
+                    <button id="addManuallyOptionBtn">Add Manually</button>
+                </div>
+                <button id="closeAddOptionsModalBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/students.js"></script>
+</body>
+</html>

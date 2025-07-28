@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Project Name Suggestion</title>
+    <link rel="stylesheet" href="css/ainamesuggestion.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>AI Project Recommender for Events</h1>
+        <p>Input an Event Theme and optional tags to get project suggestions relevant to your needs.</p>
+
+        <form id="projectSuggestionForm" onsubmit="event.preventDefault(); suggestProjects();">
+            <div class="form-group">
+                <label for="eventTheme">Event Theme (required):</label>
+                <input
+                    type="text"
+                    id="eventTheme"
+                    name="eventTheme"
+                    placeholder="Enter event theme (e.g., Health Seminar)"
+                    required
+                />
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags (optional, comma-separated):</label>
+                <input
+                    type="text"
+                    id="tags"
+                    name="tags"
+                    placeholder="Enter tags (e.g., Hardware, Wellness)"
+                />
+            </div>
+
+            <button type="submit" class="btn">Suggest Project Names</button>
+        </form>
+
+        <div id="results" class="results-container">
+            <!-- Suggested projects will appear here -->
+        </div>
+    </div>
+
+    <script src="javascript/ainamesuggestion.js"></script>
+</body>
+</html>
