@@ -18,7 +18,7 @@ async function suggestProjects() {
     suggestBtn.innerText = "Processing...";
 
     try {
-        const response = await fetch("https://fyp-backend-8mc0.onrender.com/suggest-project-name", {
+        const response = await fetch("http://localhost:5001/suggest-project-name", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
