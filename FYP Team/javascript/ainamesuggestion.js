@@ -18,7 +18,7 @@ async function suggestProjects() {
     suggestBtn.innerText = "Processing...";
 
     try {
-        const response = await fetch("https://your-service-name.onrender.com/suggest-project-name", {
+        const response = await fetch("https://ai-event-recommender.onrender.com//suggest-project-name", {
 
             method: "POST",
             headers: {
