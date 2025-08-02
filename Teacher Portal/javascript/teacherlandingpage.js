@@ -76,14 +76,11 @@ function loadContent(contentId) {
 
 // Handle logout
 function handleLogout() {
+    console.log("Clearing localStorage...");
     localStorage.removeItem('authToken');
     localStorage.removeItem('lastVisitedPage');
-    localStorage.removeItem('isFreshLogin');
-    localStorage.clear(); 
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function() {
-        window.history.go(1);
-    };
+
+    // Redirect to login page
     window.location.href = '../login.html';
 }
 
@@ -375,7 +372,7 @@ function initializeApp() {
             }
         });
 
-        document.querySelector(".profile-options li a[href='../login.html']")?.addEventListener("click", function (e) {
+        document.getElementById("logoutBtn")?.addEventListener("click", function (e) {
             e.preventDefault();
             handleLogout();
         });
