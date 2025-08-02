@@ -73,18 +73,13 @@ function loadContent(contentId) {
 
 // Handle logout
 function handleLogout() {
-    // Clear authentication data
+    console.log("Clearing localStorage..."); // Optional: Debug check
     localStorage.removeItem('authToken');
     localStorage.removeItem('lastVisitedPage');
-    
-    // Prevent back button after logout
-    window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function() {
-        window.history.go(1);
-    };
-    
-    // Redirect to login page
+
+    // Redirect and force reload to clear memory/cache
     window.location.href = '../login.html';
+    location.reload();
 }
 
 // Initialize the application
@@ -152,10 +147,11 @@ function initializeApp() {
             }
         });
 
-        const logoutLink = document.querySelector(".profile-options li a[href='../login.html']");
-        if (logoutLink) {
-            logoutLink.addEventListener("click", function (event) {
+        const logoutBtn = document.getElementById("logoutBtn");
+        if (logoutBtn) {
+            logoutBtn.addEventListener("click", function (event) {
                 event.preventDefault();
+                console.log("Logout clicked"); // Optional: Debug check
                 handleLogout();
             });
         }
