@@ -23,33 +23,51 @@ function checkAuth() {
 function loadContent(contentId) {
     if (!checkAuth()) return;
 
-    // Clean content ID to remove any path segments
     const cleanContentId = contentId.split('/').pop().replace('.html', '');
     localStorage.setItem('lastVisitedPage', cleanContentId);
 
     const contentArea = document.getElementById('main-content');
     const url = `${cleanContentId}.html`;
 
+    // Show a temporary loading spinner
+    contentArea.innerHTML = `<div class="loading-spinner">Loading...</div>`;
+
+    // Clean up previous dynamic scripts
+    document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
+
+    // Dynamically inject CSS if not already added
+    const styleId = `style-${cleanContentId}`;
+    if (!document.getElementById(styleId)) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = `css/${cleanContentId}.css?v=${new Date().getTime()}`;
+        link.id = styleId;
+        document.head.appendChild(link);
+    }
+
     fetch(url)
         .then(response => {
-            if (!response.ok) throw new Error('Content not found');
+            if (!response.ok) {
+                throw new Error('Content not found');
+            }
             return response.text();
         })
         .then(data => {
+            // Inject the HTML only after CSS is likely started loading
             contentArea.innerHTML = data;
-            document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
 
+            // Load the corresponding JS
             const newScript = document.createElement("script");
             newScript.className = "dynamicScript";
             newScript.src = `javascript/${cleanContentId}.js?v=${new Date().getTime()}`;
-            newScript.textContent = `window.AUTH_TOKEN = 'Bearer ${localStorage.getItem('authToken')}';`;
             document.body.appendChild(newScript);
+
+            console.log(`Content for ${cleanContentId} loaded successfully.`);
         })
         .catch(error => {
             console.error('Content load error:', error);
-            // Fallback to default content if initial load fails
-            if (cleanContentId !== 'keyinsightsteacher') {
-                loadContent('keyinsightsteacher');
+            if (cleanContentId !== 'students') {
+                loadContent('students');
             } else {
                 contentArea.innerHTML = `<p>Error loading content. Please try again.</p>`;
             }
