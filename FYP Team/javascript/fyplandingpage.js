@@ -20,14 +20,27 @@ function checkAuth() {
 function loadContent(contentId) {
     if (!checkAuth()) return;
 
-    // Clean content ID to prevent path issues
     const cleanContentId = contentId.split('/').pop().replace('.html', '');
     localStorage.setItem('lastVisitedPage', cleanContentId);
 
     const contentArea = document.getElementById('main-content');
     const url = `${cleanContentId}.html`;
 
-    console.log(`Loading content from: ${url}`);
+    // Show a temporary loading spinner
+    contentArea.innerHTML = `<div class="loading-spinner">Loading...</div>`;
+
+    // Clean up previous dynamic scripts
+    document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
+
+    // Dynamically inject CSS if not already added
+    const styleId = `style-${cleanContentId}`;
+    if (!document.getElementById(styleId)) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = `css/${cleanContentId}.css?v=${new Date().getTime()}`;
+        link.id = styleId;
+        document.head.appendChild(link);
+    }
 
     fetch(url)
         .then(response => {
@@ -37,24 +50,19 @@ function loadContent(contentId) {
             return response.text();
         })
         .then(data => {
-            // Clear previous content and scripts
+            // Inject the HTML only after CSS is likely started loading
             contentArea.innerHTML = data;
-            document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
 
-            // Create new script element
+            // Load the corresponding JS
             const newScript = document.createElement("script");
             newScript.className = "dynamicScript";
             newScript.src = `javascript/${cleanContentId}.js?v=${new Date().getTime()}`;
-            
-            // Set token as a global variable
-            newScript.textContent = `window.AUTH_TOKEN = 'Bearer ${localStorage.getItem('authToken')}';`;
-            
             document.body.appendChild(newScript);
+
             console.log(`Content for ${cleanContentId} loaded successfully.`);
         })
         .catch(error => {
             console.error('Content load error:', error);
-            // Fallback to students page if loading fails
             if (cleanContentId !== 'students') {
                 loadContent('students');
             } else {
