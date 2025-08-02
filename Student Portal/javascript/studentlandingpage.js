@@ -23,12 +23,13 @@ function checkAuth() {
 function loadContent(contentId) {
     if (!checkAuth()) return;
 
-    // Clean content ID to remove any path segments
     const cleanContentId = contentId.split('/').pop().replace('.html', '');
     localStorage.setItem('lastVisitedPage', cleanContentId);
 
     const contentArea = document.getElementById('main-content');
     const url = `${cleanContentId}.html`;
+
+    console.log(`Loading content from: ${url}`);
 
     fetch(url)
         .then(response => {
@@ -36,22 +37,27 @@ function loadContent(contentId) {
             return response.text();
         })
         .then(data => {
+            // Replace content and remove old dynamic scripts
             contentArea.innerHTML = data;
             document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
 
+            // Inject dynamic script for that page
             const newScript = document.createElement("script");
             newScript.className = "dynamicScript";
             newScript.src = `javascript/${cleanContentId}.js?v=${new Date().getTime()}`;
             newScript.textContent = `window.AUTH_TOKEN = 'Bearer ${localStorage.getItem('authToken')}';`;
+
             document.body.appendChild(newScript);
+
+            console.log(`Content for ${cleanContentId} loaded successfully.`);
         })
         .catch(error => {
             console.error('Content load error:', error);
-            // Fallback to default content if initial load fails
+            // Fallback: Redirect to dashboard if the page fails
             if (cleanContentId !== 'keyinsightsstudent') {
                 loadContent('keyinsightsstudent');
             } else {
-                contentArea.innerHTML = `<p>Error loading content. Please try again.</p>`;
+                contentArea.innerHTML = `<p>Error loading content. Please try again later.</p>`;
             }
         });
 }
