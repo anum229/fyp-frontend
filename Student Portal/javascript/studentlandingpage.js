@@ -64,16 +64,23 @@ function loadContent(contentId) {
 
 // Handle logout
 function handleLogout() {
-    localStorage.removeItem('authToken');
-    localStorage.removeItem('lastVisitedPage');
-    localStorage.removeItem('isFreshLogin');
-    localStorage.clear(); 
+    // Clear local and session storage
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Prevent back navigation after logout
     window.history.pushState(null, null, window.location.href);
-    window.onpopstate = function() {
+    window.onpopstate = function () {
         window.history.go(1);
     };
+
+    // Optional: Clear any auth-related cookies (if used)
+    // document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    // Redirect to login page (adjust path if needed for live version)
     window.location.href = '../login.html';
 }
+
 
 // Format time as "X time ago"
 function formatTimeAgo(dateString) {
