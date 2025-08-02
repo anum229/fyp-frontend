@@ -64,25 +64,13 @@ function loadContent(contentId) {
 
 // Handle logout
 function handleLogout() {
-    try {
-        // Clear both local and session storage
-        localStorage.clear();
-        sessionStorage.clear();
+    console.log("Clearing localStorage...");
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('lastVisitedPage');
 
-        // Prevent navigating back
-        window.history.pushState(null, null, window.location.href);
-        window.onpopstate = function () {
-            window.history.go(1);
-        };
-
-        // Use replace to ensure old page isn't cached
-        location.replace('/login.html'); // Make sure this path is correct for your live site
-    } catch (error) {
-        console.error("Logout failed:", error);
-        alert("Logout failed. Please try again.");
-    }
+    // Redirect to login page
+    window.location.href = '../login.html';
 }
-
 
 // Format time as "X time ago"
 function formatTimeAgo(dateString) {
@@ -372,7 +360,7 @@ function initializeApp() {
             }
         });
 
-        document.querySelector(".profile-options li a[href='../login.html']")?.addEventListener("click", function (e) {
+        document.querySelector(".profile-options a")?.addEventListener("click", function (e) {
             e.preventDefault();
             handleLogout();
         });
