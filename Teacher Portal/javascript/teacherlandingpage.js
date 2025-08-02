@@ -23,19 +23,20 @@ function checkAuth() {
 function loadContent(contentId) {
     if (!checkAuth()) return;
 
+    // Clean content ID to prevent path issues
     const cleanContentId = contentId.split('/').pop().replace('.html', '');
     localStorage.setItem('lastVisitedPage', cleanContentId);
 
     const contentArea = document.getElementById('main-content');
     const url = `${cleanContentId}.html`;
 
-    // Show a temporary loading spinner
+    // Show loading spinner
     contentArea.innerHTML = `<div class="loading-spinner">Loading...</div>`;
 
-    // Clean up previous dynamic scripts
+    // Remove any previously injected dynamic scripts
     document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
 
-    // Dynamically inject CSS if not already added
+    // Inject corresponding CSS dynamically if not already added
     const styleId = `style-${cleanContentId}`;
     if (!document.getElementById(styleId)) {
         const link = document.createElement("link");
@@ -45,15 +46,14 @@ function loadContent(contentId) {
         document.head.appendChild(link);
     }
 
+    // Fetch the HTML content
     fetch(url)
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Content not found');
-            }
+            if (!response.ok) throw new Error('Content not found');
             return response.text();
         })
         .then(data => {
-            // Inject the HTML only after CSS is likely started loading
+            // Inject the HTML
             contentArea.innerHTML = data;
 
             // Load the corresponding JS
@@ -61,13 +61,13 @@ function loadContent(contentId) {
             newScript.className = "dynamicScript";
             newScript.src = `javascript/${cleanContentId}.js?v=${new Date().getTime()}`;
             document.body.appendChild(newScript);
-
-            console.log(`Content for ${cleanContentId} loaded successfully.`);
         })
         .catch(error => {
             console.error('Content load error:', error);
-            if (cleanContentId !== 'students') {
-                loadContent('students');
+
+            // Fallback to default page
+            if (cleanContentId !== 'keyinsightsteacher') {
+                loadContent('keyinsightsteacher');
             } else {
                 contentArea.innerHTML = `<p>Error loading content. Please try again.</p>`;
             }
