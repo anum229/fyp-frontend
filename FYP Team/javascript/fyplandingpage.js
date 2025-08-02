@@ -30,37 +30,37 @@ function loadContent(contentId) {
     console.log(`Loading content from: ${url}`);
 
     fetch(url)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Content not found');
-        }
-        return response.text();
-    })
-    .then(data => {
-        // Clean up previous dynamic scripts
-        document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Content not found');
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Clear previous content and scripts
+            contentArea.innerHTML = data;
+            document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
 
-        // 🟢 Dynamically inject CSS if not already loaded
-        const styleId = `style-${cleanContentId}`;
-        if (!document.getElementById(styleId)) {
-            const link = document.createElement("link");
-            link.rel = "stylesheet";
-            link.href = `css/${cleanContentId}.css?v=${new Date().getTime()}`;
-            link.id = styleId;
-            document.head.appendChild(link);
-        }
-
-        // 🟢 Inject HTML into content area
-        contentArea.innerHTML = data;
-
-        // 🟢 Dynamically load associated JS
-        const newScript = document.createElement("script");
-        newScript.className = "dynamicScript";
-        newScript.src = `javascript/${cleanContentId}.js?v=${new Date().getTime()}`;
-        document.body.appendChild(newScript);
-
-        console.log(`Content for ${cleanContentId} loaded successfully.`);
-    })
+            // Create new script element
+            const newScript = document.createElement("script");
+            newScript.className = "dynamicScript";
+            newScript.src = `javascript/${cleanContentId}.js?v=${new Date().getTime()}`;
+            
+            // Set token as a global variable
+            newScript.textContent = `window.AUTH_TOKEN = 'Bearer ${localStorage.getItem('authToken')}';`;
+            
+            document.body.appendChild(newScript);
+            console.log(`Content for ${cleanContentId} loaded successfully.`);
+        })
+        .catch(error => {
+            console.error('Content load error:', error);
+            // Fallback to students page if loading fails
+            if (cleanContentId !== 'students') {
+                loadContent('students');
+            } else {
+                contentArea.innerHTML = `<p>Error loading content. Please try again.</p>`;
+            }
+        });
 }
 
 // Handle logout
