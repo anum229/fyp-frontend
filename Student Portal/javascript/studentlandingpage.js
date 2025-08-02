@@ -64,21 +64,25 @@ function loadContent(contentId) {
 
 // Handle logout
 function handleLogout() {
-    // Clear all storage
-    localStorage.clear();
-    sessionStorage.clear();
-    
-    // Clear cookies (if any)
-    document.cookie.split(";").forEach(cookie => {
-        const eqPos = cookie.indexOf("=");
-        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-    });
-    
-    // Force reload and redirect
-    window.location.href = '../login.html';
-    window.location.reload(true); // force reload from server, not cache
+    try {
+        // Clear both local and session storage
+        localStorage.clear();
+        sessionStorage.clear();
+
+        // Prevent navigating back
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.history.go(1);
+        };
+
+        // Use replace to ensure old page isn't cached
+        location.replace('/login.html'); // Make sure this path is correct for your live site
+    } catch (error) {
+        console.error("Logout failed:", error);
+        alert("Logout failed. Please try again.");
+    }
 }
+
 
 // Format time as "X time ago"
 function formatTimeAgo(dateString) {
