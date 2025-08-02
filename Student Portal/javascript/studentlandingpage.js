@@ -360,7 +360,7 @@ function initializeApp() {
             }
         });
 
-        document.querySelector(".profile-options a")?.addEventListener("click", function (e) {
+        document.getElementById("logoutBtn")?.addEventListener("click", function (e) {
             e.preventDefault();
             handleLogout();
         });
