@@ -134,6 +134,64 @@
         }
     }
 
+    async function handleBulkUpload() {
+        const fileInput = document.getElementById('csvFileInput');
+        const file = fileInput.files[0];
+        
+        if (!file) {
+            alert('Please select a CSV file first');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+
+        try {
+            const uploadBtn = document.getElementById('uploadCsvBtn');
+            if (uploadBtn) {
+                uploadBtn.disabled = true;
+                uploadBtn.textContent = 'Uploading...';
+            }
+
+            const response = await fetch(`${API_URL}/bulkuploadfundedprojects`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': window.AUTH_TOKEN || `Bearer ${localStorage.getItem('authToken')}`,
+                },
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || 'Bulk upload failed');
+            }
+
+            let message = `Bulk upload completed!\n\nTotal: ${result.total}\nSuccess: ${result.success}`;
+            if (result.errors > 0) {
+                message += `\nErrors: ${result.errors}\n\nError details:\n`;
+                result.errorDetails.forEach(error => {
+                    message += `Row ${error.row}: ${error.error}\n`;
+                });
+            }
+            
+            alert(message);
+            
+            document.getElementById('bulkUploadModal').style.display = 'none';
+            const projects = await fetchFundedProjects();
+            renderTable(projects);
+        } catch (error) {
+            console.error('Bulk upload error:', error);
+            alert(`Error during bulk upload: ${error.message}`);
+        } finally {
+            const uploadBtn = document.getElementById('uploadCsvBtn');
+            if (uploadBtn) {
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = 'Upload';
+            }
+        }
+    }
+
     // ====================== UI Functions ======================
     function renderTable(projects) {
         const tableBody = document.querySelector("#fundedProjectsTable tbody");
@@ -276,7 +334,46 @@
     // ====================== Event Listeners ======================
     function initializeEventListeners() {
         // Main buttons
-        document.getElementById("addProjectBtn")?.addEventListener("click", openAddModal);
+        document.getElementById("addProjectBtn")?.addEventListener("click", () => {
+            document.getElementById("addOptionsModal").style.display = "flex";
+        });
+
+        // Add options modal
+        document.getElementById("addManuallyOptionBtn")?.addEventListener("click", () => {
+            document.getElementById("addOptionsModal").style.display = "none";
+            openAddModal();
+        });
+
+        document.getElementById("bulkUploadOptionBtn")?.addEventListener("click", () => {
+            document.getElementById("addOptionsModal").style.display = "none";
+            document.getElementById("bulkUploadModal").style.display = "flex";
+        });
+
+        document.getElementById("closeAddOptionsModalBtn")?.addEventListener("click", () => {
+            document.getElementById("addOptionsModal").style.display = "none";
+        });
+
+        // Bulk upload modal
+        document.getElementById("closeBulkUploadModalBtn")?.addEventListener("click", () => {
+            document.getElementById("bulkUploadModal").style.display = "none";
+        });
+
+        // CSV file selection
+        document.getElementById('csvFileInput')?.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('selectedFileName').textContent = `Selected file: ${file.name}`;
+                
+                const buttonContainer = document.querySelector('#bulkUploadModal .button-container');
+                if (!document.getElementById('uploadCsvBtn')) {
+                    const uploadBtn = document.createElement('button');
+                    uploadBtn.id = 'uploadCsvBtn';
+                    uploadBtn.textContent = 'Upload';
+                    uploadBtn.addEventListener('click', handleBulkUpload);
+                    buttonContainer.insertBefore(uploadBtn, buttonContainer.firstChild);
+                }
+            }
+        });
 
         // Add/edit project modal
         document.getElementById("saveProjectBtn")?.addEventListener("click", saveProject);
