@@ -183,6 +183,16 @@
             return;
         }
 
+        // Check if required DOM elements exist
+        const venueSelect = document.getElementById("venue");
+        const sendNotificationBtn = document.querySelector(".send-notification-btn");
+        
+        if (!venueSelect || !sendNotificationBtn) {
+            console.log("DOM elements not ready yet, retrying in 100ms...");
+            setTimeout(initializeApp, 100);
+            return;
+        }
+
         try {
             await fetchVenues();
             const groups = await fetchSupervisorGroups();
@@ -197,13 +207,42 @@
         }
 
         // Add event listener to "Schedule Meeting" button
-        document.querySelector(".send-notification-btn").addEventListener("click", showNotificationSuccess);
+        sendNotificationBtn.addEventListener("click", showNotificationSuccess);
+    }
+
+    // More robust initialization approach
+    function startInitialization() {
+        // Try to initialize immediately
+        initializeApp();
+        
+        // Also set up a fallback timer in case DOM elements take longer to load
+        let attempts = 0;
+        const maxAttempts = 50; // 5 seconds max (50 * 100ms)
+        
+        const checkAndInitialize = () => {
+            attempts++;
+            const venueSelect = document.getElementById("venue");
+            const sendNotificationBtn = document.querySelector(".send-notification-btn");
+            
+            if (venueSelect && sendNotificationBtn) {
+                console.log("DOM elements found, initializing...");
+                initializeApp();
+            } else if (attempts < maxAttempts) {
+                setTimeout(checkAndInitialize, 100);
+            } else {
+                console.error("Failed to find required DOM elements after maximum attempts");
+                alert("Failed to initialize application.");
+            }
+        };
+        
+        // Start the fallback check
+        setTimeout(checkAndInitialize, 100);
     }
 
     // Start the application when DOM is fully loaded
     if (document.readyState === "complete" || document.readyState === "interactive") {
-        setTimeout(initializeApp, 1);
+        setTimeout(startInitialization, 1);
     } else {
-        document.addEventListener("DOMContentLoaded", initializeApp);
+        document.addEventListener("DOMContentLoaded", startInitialization);
     }
 })();

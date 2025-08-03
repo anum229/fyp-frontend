@@ -159,23 +159,65 @@
     // ====================== Initialization ======================
     async function initializeApp() {
         console.log("Initializing application...");
+        
+        // Check if required DOM elements exist
+        const upcomingContainer = document.getElementById('upcomingEventsContainer');
+        const pastContainer = document.getElementById('pastEventsContainer');
+        
+        if (!upcomingContainer || !pastContainer) {
+            console.log("DOM elements not ready yet, retrying in 100ms...");
+            setTimeout(initializeApp, 100);
+            return;
+        }
+        
         try {
-            document.getElementById('upcomingEventsContainer').innerHTML = '<p>Loading events...</p>';
-            document.getElementById('pastEventsContainer').innerHTML = '';
+            upcomingContainer.innerHTML = '<p>Loading events...</p>';
+            pastContainer.innerHTML = '';
             
             const events = await fetchAllEvents();
             renderEvents(events);
         } catch (error) {
             console.error("Startup error:", error);
-            document.getElementById('upcomingEventsContainer').innerHTML = 
-                `<p class="error">Failed to load events: ${error.message}</p>`;
+            if (upcomingContainer) {
+                upcomingContainer.innerHTML = 
+                    `<p class="error">Failed to load events: ${error.message}</p>`;
+            }
         }
+    }
+
+    // More robust initialization approach
+    function startInitialization() {
+        // Try to initialize immediately
+        initializeApp();
+        
+        // Also set up a fallback timer in case DOM elements take longer to load
+        let attempts = 0;
+        const maxAttempts = 50; // 5 seconds max (50 * 100ms)
+        
+        const checkAndInitialize = () => {
+            attempts++;
+            const upcomingContainer = document.getElementById('upcomingEventsContainer');
+            const pastContainer = document.getElementById('pastEventsContainer');
+            
+            if (upcomingContainer && pastContainer) {
+                console.log("DOM elements found, initializing...");
+                initializeApp();
+            } else if (attempts < maxAttempts) {
+                setTimeout(checkAndInitialize, 100);
+            } else {
+                console.error("Failed to find required DOM elements after maximum attempts");
+                alert("Failed to initialize application.");
+            }
+        };
+        
+        // Start the fallback check
+        setTimeout(checkAndInitialize, 100);
     }
 
     // Start when DOM is fully loaded
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeApp);
+        document.addEventListener('DOMContentLoaded', startInitialization);
     } else {
-        initializeApp();
+        startInitialization();
     }
 })();

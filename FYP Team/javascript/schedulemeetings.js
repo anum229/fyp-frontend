@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "http://localhost:5000";
+    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
     const MEETING_API = `${BASE_URL}/api/meetings`;
     const VENUES_API = `${MEETING_API}/venues`;
     const ELIGIBLE_GROUPS_API = `${MEETING_API}/eligible-groups`;
@@ -317,6 +317,16 @@
             return;
         }
 
+        // Check if required DOM elements exist
+        const searchBar = document.getElementById("searchBar");
+        const scheduleTable = document.getElementById("scheduleTable");
+        
+        if (!searchBar || !scheduleTable) {
+            console.log("DOM elements not ready yet, retrying in 100ms...");
+            setTimeout(initializeApp, 100);
+            return;
+        }
+
         try {
             await Promise.all([fetchVenues(), fetchGroups()]);
         } catch (error) {
@@ -325,10 +335,39 @@
         }
     }
 
+    // More robust initialization approach
+    function startInitialization() {
+        // Try to initialize immediately
+        initializeApp();
+        
+        // Also set up a fallback timer in case DOM elements take longer to load
+        let attempts = 0;
+        const maxAttempts = 50; // 5 seconds max (50 * 100ms)
+        
+        const checkAndInitialize = () => {
+            attempts++;
+            const searchBar = document.getElementById("searchBar");
+            const scheduleTable = document.getElementById("scheduleTable");
+            
+            if (searchBar && scheduleTable) {
+                console.log("DOM elements found, initializing...");
+                initializeApp();
+            } else if (attempts < maxAttempts) {
+                setTimeout(checkAndInitialize, 100);
+            } else {
+                console.error("Failed to find required DOM elements after maximum attempts");
+                alert("Failed to initialize application. Please check console for details.");
+            }
+        };
+        
+        // Start the fallback check
+        setTimeout(checkAndInitialize, 100);
+    }
+
     // Start the application when DOM is fully loaded
     if (document.readyState === "complete" || document.readyState === "interactive") {
-        setTimeout(initializeApp, 1);
+        setTimeout(startInitialization, 1);
     } else {
-        document.addEventListener("DOMContentLoaded", initializeApp);
+        document.addEventListener("DOMContentLoaded", startInitialization);
     }
 })();
