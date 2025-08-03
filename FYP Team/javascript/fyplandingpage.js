@@ -50,8 +50,26 @@ function loadContent(contentId) {
             return response.text();
         })
         .then(data => {
+            // Extract only the body content to avoid invalid HTML structure
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+            
+            // Find the body content
+            const bodyContent = tempDiv.querySelector('body');
+            let contentToInject;
+            
+            if (bodyContent) {
+                // Extract all content inside body, excluding script tags
+                const bodyChildren = Array.from(bodyContent.children);
+                const contentElements = bodyChildren.filter(child => child.tagName !== 'SCRIPT');
+                contentToInject = contentElements.map(child => child.outerHTML).join('');
+            } else {
+                // Fallback: use the entire data if no body tag found
+                contentToInject = data;
+            }
+
             // Inject the HTML only after CSS is likely started loading
-            contentArea.innerHTML = data;
+            contentArea.innerHTML = contentToInject;
 
             // Load the corresponding JS
             const newScript = document.createElement("script");

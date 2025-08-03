@@ -1,5 +1,5 @@
 // Define base URL for API requests
-const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
+const BASE_URL = "http://localhost:5000";
 
 // Function to display the current date
 function displayCurrentDate() {
@@ -53,8 +53,26 @@ function loadContent(contentId) {
             return response.text();
         })
         .then(data => {
+            // Extract only the body content to avoid invalid HTML structure
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+            
+            // Find the body content
+            const bodyContent = tempDiv.querySelector('body');
+            let contentToInject;
+            
+            if (bodyContent) {
+                // Extract all content inside body, excluding script tags
+                const bodyChildren = Array.from(bodyContent.children);
+                const contentElements = bodyChildren.filter(child => child.tagName !== 'SCRIPT');
+                contentToInject = contentElements.map(child => child.outerHTML).join('');
+            } else {
+                // Fallback: use the entire data if no body tag found
+                contentToInject = data;
+            }
+
             // Inject the HTML
-            contentArea.innerHTML = data;
+            contentArea.innerHTML = contentToInject;
 
             // Load the corresponding JS
             const newScript = document.createElement("script");

@@ -1,5 +1,5 @@
 // Define base URL for API requests
-const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
+const BASE_URL = "http://localhost:5000";
 
 // Function to display the current date
 function displayCurrentDate() {
@@ -31,15 +31,48 @@ function loadContent(contentId) {
 
     console.log(`Loading content from: ${url}`);
 
+    // Show a temporary loading spinner
+    contentArea.innerHTML = `<div class="loading-spinner">Loading...</div>`;
+
+    // Clean up previous dynamic scripts
+    document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
+
+    // Dynamically inject CSS if not already added
+    const styleId = `style-${cleanContentId}`;
+    if (!document.getElementById(styleId)) {
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = `css/${cleanContentId}.css?v=${new Date().getTime()}`;
+        link.id = styleId;
+        document.head.appendChild(link);
+    }
+
     fetch(url)
         .then(response => {
             if (!response.ok) throw new Error('Content not found');
             return response.text();
         })
         .then(data => {
-            // Replace content and remove old dynamic scripts
-            contentArea.innerHTML = data;
-            document.querySelectorAll(".dynamicScript").forEach(script => script.remove());
+            // Extract only the body content to avoid invalid HTML structure
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = data;
+            
+            // Find the body content
+            const bodyContent = tempDiv.querySelector('body');
+            let contentToInject;
+            
+            if (bodyContent) {
+                // Extract all content inside body, excluding script tags
+                const bodyChildren = Array.from(bodyContent.children);
+                const contentElements = bodyChildren.filter(child => child.tagName !== 'SCRIPT');
+                contentToInject = contentElements.map(child => child.outerHTML).join('');
+            } else {
+                // Fallback: use the entire data if no body tag found
+                contentToInject = data;
+            }
+
+            // Inject the HTML only after CSS is likely started loading
+            contentArea.innerHTML = contentToInject;
 
             // Inject dynamic script for that page
             const newScript = document.createElement("script");
