@@ -1,6 +1,6 @@
 (function() {
     // API Configuration
-    const BASE_URL = "https://fyp-backend-8mc0.onrender.com";
+    const BASE_URL = "http://localhost:5000";
     const MEETING_API = `${BASE_URL}/api/meetings`;
     const VENUES_API = `${MEETING_API}/venues`;
     const ELIGIBLE_GROUPS_API = `${MEETING_API}/eligible-groups`;
@@ -145,6 +145,11 @@
     function renderTable(data) {
         const tableBody = document.querySelector("#scheduleTable tbody");
         tableBody.innerHTML = "";
+
+        if (!data || data.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="9" class="no-data">No groups available for scheduling at the moment.</td></tr>`;
+            return;
+        }
 
         data.forEach((group) => {
             const membersHTML = group.groupMembers
