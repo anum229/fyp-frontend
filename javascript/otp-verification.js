@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:5000/api/otp/resend", {
+            const response = await fetch("https://fyp-backend-8mc0.onrender.com/api/otp/resend", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, role }),
