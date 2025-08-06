@@ -404,7 +404,7 @@ textarea {
 
     .event-description {
         font-size: 14px;
-        text-align: left;
+        text-align: justify;
         line-height: 1.5;
     }
 
@@ -433,7 +433,7 @@ textarea {
 
     .event-description {
         font-size: 13px;
-        text-align: left;
+        text-align: justify;
         line-height: 1.5;
     }
 
