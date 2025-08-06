@@ -573,6 +573,7 @@ table .password-column {
 @media (max-width: 576px) {
     .teachers-management-container {
         margin: 20px auto 60px auto;
+        margin-bottom: 25px;
     }
 
     h1 {
@@ -649,6 +650,7 @@ table .password-column {
     .teachers-management-container {
         margin: 20px auto 60px auto;
         width: 95%;
+        margin-bottom: 25px;
     }
 
     h1 {
