@@ -6,6 +6,48 @@
     // Current editing project ID
     let editingProjectId = null;
     let currentProjectData = null;
+    
+    // Loading state management to prevent duplicate submissions
+    let isSubmitting = false;
+
+    // ====================== Loading State Management ======================
+    function setLoadingState(loading) {
+        isSubmitting = loading;
+        
+        // Disable/enable all interactive buttons
+        const saveBtn = document.getElementById("saveProjectBtn");
+        const addProjectBtn = document.getElementById("addProjectBtn");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const uploadCsvBtn = document.getElementById("uploadCsvBtn");
+        
+        if (saveBtn) saveBtn.disabled = loading;
+        if (addProjectBtn) addProjectBtn.disabled = loading;
+        if (closeModalBtn) closeModalBtn.disabled = loading;
+        if (uploadCsvBtn) uploadCsvBtn.disabled = loading;
+        
+        // Update button text to show loading state
+        if (saveBtn) {
+            saveBtn.textContent = loading ? "Saving..." : "Save";
+        }
+        if (addProjectBtn) {
+            addProjectBtn.textContent = loading ? "Adding..." : "Add Project";
+        }
+        if (uploadCsvBtn) {
+            uploadCsvBtn.textContent = loading ? "Uploading..." : "Upload";
+        }
+        
+        // Disable form inputs during submission
+        const formInputs = [
+            document.getElementById("projectTitle"),
+            document.getElementById("groupID"),
+            document.getElementById("department"),
+            document.getElementById("groupMembers"),
+            document.getElementById("year")
+        ];
+        formInputs.forEach(input => {
+            if (input) input.disabled = loading;
+        });
+    }
 
     // ====================== API Functions ======================
     async function fetchPreviousFYPs() {
@@ -135,6 +177,12 @@
     }
 
     async function handleBulkUpload() {
+        // Prevent duplicate submissions
+        if (isSubmitting) {
+            console.log("Bulk upload already in progress, ignoring duplicate click");
+            return;
+        }
+        
         const fileInput = document.getElementById('csvFileInput');
         const file = fileInput.files[0];
         
@@ -143,52 +191,40 @@
             return;
         }
 
+        setLoadingState(true);
+
         const formData = new FormData();
         formData.append('file', file);
 
         try {
-            const uploadBtn = document.getElementById('uploadCsvBtn');
-            if (uploadBtn) {
-                uploadBtn.disabled = true;
-                uploadBtn.textContent = 'Uploading...';
-            }
-
             const response = await fetch(`${API_URL}/bulkupload`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': window.AUTH_TOKEN || `Bearer ${localStorage.getItem('authToken')}`,
+                    'Authorization': window.AUTH_TOKEN || `Bearer ${localStorage.getItem('authToken')}`
                 },
                 body: formData
             });
 
-            const result = await response.json();
-
             if (!response.ok) {
-                throw new Error(result.message || 'Bulk upload failed');
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Bulk upload failed');
             }
 
-            let message = `Bulk upload completed!\n\nAdded: ${result.added}`;
-            if (result.data && result.data.length > 0) {
-                message += `\n\nUploaded projects:\n`;
-                result.data.forEach((project, index) => {
-                    message += `${index + 1}. ${project.projectTitle} (${project.groupID})\n`;
-                });
-            }
+            const result = await response.json();
+            alert(`Bulk upload completed! Successfully uploaded ${result.added} projects.`);
             
-            alert(message);
+            // Close modal and refresh data
+            document.getElementById("bulkUploadModal").style.display = "none";
+            fileInput.value = "";
+            document.getElementById('selectedFileName').textContent = "";
             
-            document.getElementById('bulkUploadModal').style.display = 'none';
             const projects = await fetchPreviousFYPs();
             renderTable(projects);
         } catch (error) {
-            console.error('Bulk upload error:', error);
-            alert(`Error during bulk upload: ${error.message}`);
+            console.error("Bulk upload error:", error);
+            alert(`Error: ${error.message}`);
         } finally {
-            const uploadBtn = document.getElementById('uploadCsvBtn');
-            if (uploadBtn) {
-                uploadBtn.disabled = false;
-                uploadBtn.textContent = 'Upload';
-            }
+            setLoadingState(false);
         }
     }
 
@@ -233,6 +269,9 @@
     }
 
     function openAddModal() {
+        // Prevent opening modal if currently submitting
+        if (isSubmitting) return;
+        
         document.getElementById("addProjectModal").style.display = "flex";
         clearModalFields();
         editingProjectId = null;
@@ -248,6 +287,9 @@
     }
 
     async function openEditModal(projectId) {
+        // Prevent opening edit modal if currently submitting
+        if (isSubmitting) return;
+        
         try {
             const project = await getPreviousFYPById(projectId);
             
@@ -267,6 +309,14 @@
     }
 
     async function saveProject() {
+        // Prevent duplicate submissions
+        if (isSubmitting) {
+            console.log("Form submission already in progress, ignoring duplicate click");
+            return;
+        }
+        
+        setLoadingState(true);
+
         const projectData = {
             projectTitle: document.getElementById("projectTitle").value,
             groupID: document.getElementById("groupID").value,
@@ -279,6 +329,7 @@
         if (!projectData.projectTitle || !projectData.groupID || 
             !projectData.department || !projectData.groupMembers || !projectData.year) {
             alert("Please fill in all required fields");
+            setLoadingState(false);
             return;
         }
 
@@ -296,14 +347,21 @@
             renderTable(projects);
         } catch (error) {
             alert(`Error: ${error.message}`);
+        } finally {
+            setLoadingState(false);
         }
     }
 
     async function confirmDeleteProject(projectId) {
+        // Prevent deletion if currently submitting
+        if (isSubmitting) return;
+        
         if (!confirm("Are you sure you want to delete this project?")) {
             return;
         }
 
+        setLoadingState(true);
+        
         try {
             await deletePreviousFYP(projectId);
             alert("Project deleted successfully");
@@ -311,6 +369,8 @@
             renderTable(projects);
         } catch (error) {
             alert("Error deleting project");
+        } finally {
+            setLoadingState(false);
         }
     }
 

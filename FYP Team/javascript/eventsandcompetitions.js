@@ -6,6 +6,9 @@
     // Current editing event ID
     let editingEventId = null;
     let currentEventData = null;
+    
+    // Loading state management to prevent duplicate submissions
+    let isSubmitting = false;
 
     // DOM Elements
     const eventModal = document.getElementById("eventModal");
@@ -25,6 +28,30 @@
     const cancelBtn = document.getElementById("cancelBtn");
     const saveBtn = document.getElementById("saveBtn");
     const searchBar = document.getElementById("searchBar");
+
+    // ====================== Loading State Management ======================
+    function setLoadingState(loading) {
+        isSubmitting = loading;
+        
+        // Disable/enable all interactive buttons
+        if (saveBtn) saveBtn.disabled = loading;
+        if (addEventBtn) addEventBtn.disabled = loading;
+        if (cancelBtn) cancelBtn.disabled = loading;
+        
+        // Update button text to show loading state
+        if (saveBtn) {
+            saveBtn.textContent = loading ? "Saving..." : "Save";
+        }
+        if (addEventBtn) {
+            addEventBtn.textContent = loading ? "Adding..." : "Add Event/Competition";
+        }
+        
+        // Disable form inputs during submission
+        const formInputs = [eventTitleInput, eventDateInput, eventTimeInput, eventVenueInput, eventDescriptionInput, eventWinnerInput, eventImageInput];
+        formInputs.forEach(input => {
+            if (input) input.disabled = loading;
+        });
+    }
 
     // ====================== API Functions ======================
     async function fetchEvents() {
@@ -228,6 +255,9 @@
     }
 
     function openModal() {
+        // Prevent opening modal if currently submitting
+        if (isSubmitting) return;
+        
         modalTitle.textContent = "Add Event/Competition";
         clearModalFields();
         editingEventId = null;
@@ -248,6 +278,9 @@
     }
 
     async function openEditModal(eventId) {
+        // Prevent opening edit modal if currently submitting
+        if (isSubmitting) return;
+        
         try {
             const response = await getEventById(eventId);
             const event = response.data || response;
@@ -275,15 +308,25 @@
     }
 
     function closeModal() {
+        // Prevent closing modal if currently submitting
+        if (isSubmitting) return;
+        
         eventModal.style.display = "none";
         editingEventId = null;
         currentEventData = null;
+        setLoadingState(false); // Reset loading state
     }
 
     async function saveEvent(e) {
         e.preventDefault();
         
-        saveBtn.disabled = true;
+        // Prevent duplicate submissions
+        if (isSubmitting) {
+            console.log("Form submission already in progress, ignoring duplicate click");
+            return;
+        }
+        
+        setLoadingState(true);
 
         const eventData = {
             eventTitle: eventTitleInput.value.trim(),
@@ -299,14 +342,14 @@
         if (!eventData.eventTitle || !eventData.eventDate || !eventData.eventTime || 
             !eventData.eventVenue || !eventData.eventDescription) {
             alert("Please fill in all required fields");
-            saveBtn.disabled = false;
+            setLoadingState(false);
             return;
         }
 
         // Validate image if it's a new event
         if (!editingEventId && !eventData.eventImage) {
             alert("Event image is required");
-            saveBtn.disabled = false;
+            setLoadingState(false);
             return;
         }
 
@@ -324,22 +367,32 @@
                 alert("Event created successfully");
             }
 
-            closeModal();
+            // Close modal first, then refresh data
+            eventModal.style.display = "none";
+            editingEventId = null;
+            currentEventData = null;
+            setLoadingState(false);
+            
+            // Refresh the events list
             const events = await fetchEvents();
             renderEvents(events);
         } catch (error) {
             console.error("Save error:", error);
             alert(`Error: ${error.message}`);
-        } finally {
-            saveBtn.disabled = false;
+            setLoadingState(false);
         }
     }
 
     async function confirmDeleteEvent(eventId) {
+        // Prevent deletion if currently submitting
+        if (isSubmitting) return;
+        
         if (!confirm("Are you sure you want to delete this event?")) {
             return;
         }
 
+        setLoadingState(true);
+        
         try {
             await deleteEvent(eventId);
             alert("Event deleted successfully");
@@ -347,6 +400,8 @@
             renderEvents(events);
         } catch (error) {
             alert("Error deleting event");
+        } finally {
+            setLoadingState(false);
         }
     }
 

@@ -55,10 +55,17 @@ body {
     border-radius: 5px;
     cursor: pointer;
     white-space: nowrap;
+    transition: all 0.3s ease;
 }
 
-.add-event-btn:hover {
+.add-event-btn:hover:not(:disabled) {
     background-color: #0056b3;
+}
+
+.add-event-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* ==================== */
@@ -158,6 +165,19 @@ h2 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .edit-btn {
@@ -220,11 +240,18 @@ textarea {
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    transition: border-color 0.3s ease;
 }
 
 input:focus, textarea:focus {
     outline: none;
     border: 2px solid #007bff;
+}
+
+input:disabled, textarea:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 textarea {
@@ -258,10 +285,17 @@ textarea {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.cancel-btn:hover {
+.cancel-btn:hover:not(:disabled) {
     background-color: #da0e23;
+}
+
+.cancel-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 .submit-btn {
@@ -271,10 +305,17 @@ textarea {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.submit-btn:hover {
+.submit-btn:hover:not(:disabled) {
     background-color: #0056b3;
+}
+
+.submit-btn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* ==================== */

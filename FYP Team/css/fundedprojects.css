@@ -58,10 +58,17 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     white-space: nowrap; /* Prevent button text from wrapping */
+    transition: all 0.3s ease;
 }
 
-#addProjectBtn:hover {
+#addProjectBtn:hover:not(:disabled) {
     background-color: #0056b3;
+}
+
+#addProjectBtn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* Table Styles */
@@ -98,6 +105,19 @@ tr:nth-child(even) td {
 
 tr:hover td {
     background-color: #ddd;
+}
+
+.actions {
+    cursor: pointer;
+}
+
+/* Group Member Styling */
+table td div {
+    margin-bottom: 8px; /* Adjust this value to control the spacing */
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center the GL tag with the text */
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
 }
 
 /* Modal Styling */
@@ -192,19 +212,6 @@ tr:hover td {
 #closeModalBtn {
     background-color: #e74c3c;
     color: white;
-}
-
-.actions {
-    cursor: pointer;
-}
-
-/* Group Member Styling */
-table td div {
-    margin-bottom: 8px; /* Adjust this value to control the spacing */
-    display: flex; /* Use flexbox to align items horizontally */
-    align-items: center; /* Vertically center the GL tag with the text */
-    flex-wrap: nowrap; /* Prevent wrapping of items */
-    white-space: nowrap; /* Prevent text from wrapping to the next line */
 }
 
 /* Bulk Upload Modal */
@@ -305,15 +312,17 @@ table td div {
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
+    transition: all 0.3s ease;
 }
 
-#uploadCsvBtn:hover {
+#uploadCsvBtn:hover:not(:disabled) {
     background-color: #218838;
 }
 
 #uploadCsvBtn:disabled {
     background-color: #6c757d;
     cursor: not-allowed;
+    opacity: 0.6;
 }
 
 /* Responsive Design */
