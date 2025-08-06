@@ -56,11 +56,12 @@ h1 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin-top: 20px;
+    border: 1px solid #ccc;
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: left;
     border: 1px solid #ddd;
 }
@@ -304,122 +305,104 @@ table td div {
 
     h1 {
         font-size: 24px;
-        margin-bottom: 15px;
     }
 
-    th,
-    td {
-        padding: 8px;
+    th, td {
+        padding: 10px;
     }
-    
+
     .fetch-proposals-btn {
-        padding: 8px 16px;
         font-size: 14px;
     }
-    
+
     .modal-content {
-        margin-top: 40%; 
+        width: 90%;
     }
-    
+
     .loader {
         width: 40px;
         height: 40px;
-        border-width: 4px;
     }
 }
 
 @media (max-width: 768px) {
     .passed-proposals-container {
         width: 95%;
-        margin: 20px auto;
-        padding: 15px;
+        margin: 20px auto 80px auto;
+        padding: 10px;
     }
 
     h1 {
         font-size: 22px;
-        margin-bottom: 15px;
-        text-align: left;
     }
 
     #searchBar {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
         font-size: 14px;
     }
 
-    th,
-    td {
-        padding: 6px;
-        font-size: 14px;
-    }
-    
     .header-container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
         gap: 10px;
+        align-items: stretch;
     }
-    
+
     .fetch-proposals-btn {
-        padding: 6px 12px;
-        font-size: 14px;
-        min-width: 120px;
-        height: 36px;
-        white-space: nowrap;
+        font-size: 13px;
+        padding: 8px 12px;
     }
-    
+
     .modal-content {
-        margin-top: 30%; 
+        width: 90%;
     }
-    
+
     .loader {
         width: 35px;
         height: 35px;
-        border-width: 3px;
     }
 }
 
 @media (max-width: 576px) {
     .passed-proposals-container {
-        margin: 15px auto;
-        padding: 12px;
+        margin: 20px auto 60px auto;
     }
 
     h1 {
         font-size: 20px;
-        margin-bottom: 12px;
     }
 
     #searchBar {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 6px;
         font-size: 12px;
     }
 
-    th,
-    td {
-        padding: 5px;
-        font-size: 12px;
-    }
-    
     .approve-btn, .reject-btn {
-        max-width: 100px;
         font-size: 12px;
+        padding: 4px 8px;
     }
-    
+
     .fetch-proposals-btn {
-        padding: 5px 10px;
         font-size: 12px;
-        min-width: 100px;
-        height: 32px;
+        padding: 6px 10px;
     }
-    
+
     .modal-content {
-        margin-top: 50%; 
-        width: 75%;
+        width: 80%;
     }
-    
+
     .loader {
         width: 30px;
         height: 30px;
     }
-    
+
     .loader-modal {
         padding: 20px;
     }
@@ -427,49 +410,42 @@ table td div {
 
 @media (max-width: 400px) {
     .passed-proposals-container {
-        margin: 10px auto;
+        margin: 20px auto 60px auto;
         width: 95%;
-        padding: 10px;
     }
 
     h1 {
         font-size: 18px;
-        margin-bottom: 10px;
     }
 
     #searchBar {
         font-size: 12px;
     }
 
-    th,
-    td {
-        padding: 4px;
+    th, td {
+        padding: 5px;
         font-size: 11px;
     }
-    
+
     .approve-btn, .reject-btn {
-        max-width: 80px;
         font-size: 11px;
+        padding: 3px 6px;
     }
-    
+
     .fetch-proposals-btn {
-        padding: 4px 8px;
         font-size: 11px;
-        min-width: 90px;
-        height: 30px;
+        padding: 5px 8px;
     }
-    
+
     .modal-content {
-        margin-top: 50%; 
-        width: 75%;
+        width: 80%;
     }
-    
+
     .loader {
         width: 25px;
         height: 25px;
-        border-width: 2px;
     }
-    
+
     .loader-modal {
         padding: 15px;
     }

@@ -54,14 +54,14 @@ h1 {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin-top: 20px;
+    border: 1px solid #ccc;
 }
 
 th, td {
     padding: 12px;
     text-align: left;
     border: 1px solid #ddd;
-    vertical-align: top; /* Align content to the top */
 }
 
 th {
@@ -318,11 +318,11 @@ input:invalid + .validation-error {
     }
 
     #searchBar {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     th, td {
-        padding: 8px;
+        padding: 10px;
     }
 }
 
@@ -338,12 +338,11 @@ input:invalid + .validation-error {
     }
 
     #searchBar {
-        font-size: 13px;
-        padding: 10px;
+        font-size: 12px;
     }
 
     th, td {
-        padding: 6px;
+        padding: 8px;
         font-size: 14px;
     }
 
@@ -355,10 +354,9 @@ input:invalid + .validation-error {
         font-size: 11px;
     }
 
-    /* Prevent layout shift when keypad appears */
     body {
-        position: fixed;
-        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 }
 
@@ -376,12 +374,11 @@ input:invalid + .validation-error {
     }
 
     #searchBar {
-        font-size: 12px;
-        padding: 8px;
+        font-size: 13px;
     }
 
     th, td {
-        padding: 5px;
+        padding: 6px;
         font-size: 12px;
     }
 
@@ -401,7 +398,7 @@ input:invalid + .validation-error {
     }
 
     .modal {
-        width: 90%;
+        width: 95%;
     }
 
     h1 {
@@ -409,12 +406,11 @@ input:invalid + .validation-error {
     }
 
     #searchBar {
-        font-size: 11px;
-        padding: 6px;
+        font-size: 12px;
     }
 
     th, td {
-        padding: 4px;
+        padding: 5px;
         font-size: 11px;
     }
 

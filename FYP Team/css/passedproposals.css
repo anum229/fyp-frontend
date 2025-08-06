@@ -60,52 +60,40 @@ h1 {
 /* TABLE WRAPPER */
 /* ==================== */
 .table-wrapper {
-  overflow-x: auto;
-  width: 100%;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  background: white;
-  margin: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    overflow-x: auto; /* Allow horizontal scrolling on small screens */
 }
 
 /* ==================== */
 /* TABLE STYLES */
 /* ==================== */
 table {
-  width: 100%;
-  min-width: 1200px;
-  border-collapse: collapse;
-  margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
 }
 
 th, td {
-  padding: 10px 12px;
-  text-align: left;
-  border: 1px solid #e0e0e0;
-  word-wrap: break-word;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
 }
 
 th {
-  background-color: #007bff;
-  color: white;
-  position: sticky;
-  top: 0;
-  font-weight: 600;
-  white-space: nowrap;
+    background-color: #007bff;
+    color: white;
 }
 
 td {
-  background-color: #fff;
-  vertical-align: top;
+    background-color: #f9f9f9;
 }
 
 tr:nth-child(even) td {
-  background-color: #f9f9f9;
+    background-color: #f2f2f2;
 }
 
 tr:hover td {
-  background-color: #f0f7ff;
+    background-color: #ddd;
 }
 
 /* Table Column Widths */
@@ -411,15 +399,43 @@ th:nth-child(11), td:nth-child(11) { width: 12%; min-width: 180px; } /* Assign C
 }
 
 @media (max-width: 992px) {
+  .passed-proposals-container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
   .assignment-modal .modal-content {
-    width: 80%;
-    margin-top: 20%;
+    width: 90%;
   }
-  
+
+  .assignment-modal .modal-content h2 {
+    font-size: 22px;
+  }
+
+  .assignment-modal .modal-content input[type="file"] {
+    font-size: 14px;
+  }
+
+  .assignment-modal .modal-content button {
+    font-size: 14px;
+  }
+
   .modal-search-container input {
-    width: 100%;
+    font-size: 14px;
   }
-  
+
   .supervisor-list, .coadvisor-list {
     grid-template-columns: 1fr;
   }
@@ -427,30 +443,44 @@ th:nth-child(11), td:nth-child(11) { width: 12%; min-width: 180px; } /* Assign C
 
 @media (max-width: 768px) {
   .passed-proposals-container {
-    margin: 30px auto;
+    width: 95%;
+    margin: 20px auto 80px auto;
     padding: 10px;
-    width: 100%;
-    border-radius: 0;
   }
-  
+
   h1 {
-    font-size: 20px;
+    font-size: 22px;
   }
-  
+
   .assignment-modal .modal-content {
     width: 90%;
-    padding: 15px;
-    margin: 15% auto;
   }
-  
+
+  th, td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .assignment-modal .modal-content h2 {
+    font-size: 20px;
+  }
+
+  .assignment-modal .modal-content input[type="file"] {
+    font-size: 13px;
+  }
+
+  .assignment-modal .modal-content button {
+    font-size: 13px;
+  }
+
   .supervisor-card, .coadvisor-card {
     padding: 10px;
   }
-  
+
   .modal-actions {
     flex-direction: column;
   }
-  
+
   .modal-actions .cancel-btn,
   .modal-actions .save-btn {
     width: 100%;
@@ -459,75 +489,119 @@ th:nth-child(11), td:nth-child(11) { width: 12%; min-width: 180px; } /* Assign C
 
 @media (max-width: 576px) {
   .passed-proposals-container {
-    margin: 20px auto;
+    margin: 20px auto 60px auto;
   }
-  
+
   h1 {
-    font-size: 18px;
-    margin-bottom: 15px;
+    font-size: 20px;
   }
-  
-  #searchBar {
-    padding: 10px;
-    font-size: 14px;
+
+  .modal-content {
+    width: 80%;
   }
-  
+
+  th, td {
+    padding: 6px;
+    font-size: 12px;
+  }
+
   .assignment-modal .modal-content {
-    width: 95%;
-    margin: 20% auto;
-    padding: 15px 10px;
+    width: 80%;
   }
-  
+
+  .assignment-modal .modal-content h2 {
+    font-size: 18px;
+  }
+
+  .assignment-modal .modal-content input[type="file"] {
+    font-size: 12px;
+  }
+
+  .assignment-modal .modal-content button {
+    font-size: 12px;
+  }
+
+  #searchBar {
+    font-size: 13px;
+  }
+
   .close-modal {
     font-size: 24px;
   }
-  
+
   .modal-search-container input {
     padding: 8px 12px;
-    font-size: 14px;
+    font-size: 12px;
   }
-  
+
   .supervisor-name {
     font-size: 15px;
   }
-  
+
   .supervisor-degree {
     font-size: 13px;
   }
-  
+
   .expertise-tag {
     font-size: 11px;
-  }
-
-  .assignment-modal .modal-content{
-    max-width: 80%;
   }
 }
 
 @media (max-width: 400px) {
   .passed-proposals-container {
-    padding: 8px;
+    margin: 20px auto 60px auto;
+    width: 95%;
   }
-  
+
   h1 {
+    font-size: 18px;
+  }
+
+  .modal-content {
+    width: 80%;
+  }
+
+  th, td {
+    padding: 5px;
+    font-size: 11px;
+  }
+
+  .assignment-modal .modal-content {
+    width: 80%;
+  }
+
+  .assignment-modal .modal-content h2 {
     font-size: 16px;
   }
-  
-  .assignment-modal .modal-content {
-    margin: 25% auto;
+
+  .assignment-modal .modal-content input[type="file"] {
+    font-size: 11px;
   }
-  
+
+  .assignment-modal .modal-content button {
+    font-size: 11px;
+  }
+
   .modal-search-container input {
     padding: 6px 10px;
+    font-size: 11px;
   }
-  
+
   .supervisor-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
   }
 
-  .assignment-modal .modal-content{
-    max-width: 80%;
+  .supervisor-name {
+    font-size: 14px;
+  }
+
+  .supervisor-degree {
+    font-size: 12px;
+  }
+
+  .expertise-tag {
+    font-size: 10px;
   }
 }
