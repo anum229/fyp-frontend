@@ -30,36 +30,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* ==================== */
-/* SEARCH CONTAINER */
-/* ==================== */
-.search-container {
-    margin: 20px 0;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
 
-#searchBar {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.add-event-btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.add-event-btn:hover {
-    background-color: #0056b3;
-}
 
 /* ==================== */
 /* EVENTS SECTIONS */
@@ -114,16 +85,24 @@ h2 {
     color: #333;
 }
 
-.event-date, .event-venue {
+.event-date, .event-venue, .event-time {
     font-size: 14px;
     color: #555;
     font-weight: bold;
 }
 
 .event-winner {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
     font-weight: bold;
+    color: #555;
+}
+
+.event-winner strong {
+    color: #555;
+}
+
+.event-winner span {
     color: #28a745;
 }
 
@@ -131,137 +110,15 @@ h2 {
     font-size: 16px;
     margin-top: 10px;
     color: #777;
-}
-
-.event-actions {
-    display: flex;
-    gap: 10px;
-    margin-left: auto;
-}
-
-.action-btn {
-    padding: 5px 10px;
-    font-size: 14px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.edit-btn {
-    background-color: #28a745;
-}
-
-.delete-btn {
-    background-color: #dc3545;
-}
-
-/* ==================== */
-/* MODAL STYLES */
-/* ==================== */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    width: 50%;
-    max-width: 600px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#modalTitle {
-    color: #007bff;
-    margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-input[type="text"], 
-input[type="date"], 
-input[type="time"],
-textarea {
+    text-align: left;
+    line-height: 1.5;
+    text-align: justify;
     width: 95%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
-input:focus, textarea:focus {
-    outline: none;
-    border: 2px solid #007bff;
-}
 
-textarea {
-    resize: none;
-    height: 100px;
-}
 
-#imagePreview {
-    max-width: 100%;
-    max-height: 150px;
-    display: block;
-    margin: 10px auto;
-    object-fit: contain;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.cancel-btn {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.cancel-btn:hover {
-    background-color: #da0e23;
-}
-
-.submit-btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3;
-}
 
 /* ==================== */
 /* RESPONSIVE DESIGN */
@@ -288,16 +145,7 @@ textarea {
         width: 100%;
     }
 
-    .event-actions {
-        margin-left: 0;
-        margin-top: 15px;
-        width: 100%;
-        justify-content: flex-end;
-    }
 
-    .modal-content {
-        width: 70%;
-    }
 }
 
 @media (max-width: 768px) {
@@ -305,23 +153,7 @@ textarea {
         padding: 15px;
     }
 
-    .search-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
 
-    #searchBar {
-        max-width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .add-event-btn {
-        width: 100%;
-    }
-
-    .modal-content {
-        width: 80%;
-    }
 }
 
 @media (max-width: 576px) {
@@ -344,17 +176,18 @@ textarea {
     }
 
     .event-winner {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .event-description {
         font-size: 14px;
+        text-align: left;
+        line-height: 1.5;
+        text-align: justify;
+        width: 95%;
     }
 
-    .modal-content {
-        width: 85%;
-        padding: 15px;
-    }
+
 }
 
 @media (max-width: 400px) {
@@ -371,23 +204,16 @@ textarea {
     }
 
     .event-winner {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .event-description {
         font-size: 13px;
+        text-align: left;
+        line-height: 1.5;
+        text-align: justify;
+        width: 95%;
     }
 
-    .modal-content {
-        width: 85%;
-        margin: 10% auto;
-    }
 
-    .form-actions {
-        flex-direction: column;
-    }
-
-    .cancel-btn, .submit-btn {
-        width: 100%;
-    }
 }

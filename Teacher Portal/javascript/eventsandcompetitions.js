@@ -99,12 +99,12 @@
                      onerror="this.src='default-image.jpg'">
             </div>
             <div class="event-details">
-                <h3>${event.eventTitle || 'Untitled Event'}</h3>
-                <p><strong>Date:</strong> ${formatDateForDisplay(event.eventDate)}</p>
-                ${event.eventTime ? `<p><strong>Time:</strong> ${event.eventTime}</p>` : ''}
-                ${event.eventVenue ? `<p><strong>Venue:</strong> ${event.eventVenue}</p>` : ''}
-                <p>${event.eventDescription || 'No description available.'}</p>
-                ${isPastEvent && event.eventWinner ? `<p class="winner"><strong>Winner:</strong> ${event.eventWinner}</p>` : ''}
+                <h3 class="event-title">${event.eventTitle || 'Untitled Event'}</h3>
+                <p class="event-date"><strong>Date:</strong> ${formatDateForDisplay(event.eventDate)}</p>
+                ${event.eventTime ? `<p class="event-time"><strong>Time:</strong> ${event.eventTime}</p>` : ''}
+                ${event.eventVenue ? `<p class="event-venue"><strong>Venue:</strong> ${event.eventVenue}</p>` : ''}
+                <p class="event-description">${event.eventDescription || 'No description available.'}</p>
+                ${event.eventWinner ? `<p class="event-winner"><strong>Winner:</strong> <span>${event.eventWinner}</span></p>` : ''}
             </div>
         `;
 

@@ -195,7 +195,7 @@
             if (event.eventWinner) {
                 const winnerElement = document.createElement("p");
                 winnerElement.className = "event-winner";
-                winnerElement.innerHTML = `<strong>Winner:</strong> ${event.eventWinner}`;
+                winnerElement.innerHTML = `<strong>Winner:</strong> <span>${event.eventWinner}</span>`;
                 detailsContainer.appendChild(winnerElement);
             }
 

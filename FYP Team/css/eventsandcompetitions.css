@@ -121,9 +121,17 @@ h2 {
 }
 
 .event-winner {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 10px;
     font-weight: bold;
+    color: #555;
+}
+
+.event-winner strong {
+    color: #555;
+}
+
+.event-winner span {
     color: #28a745;
 }
 
@@ -131,6 +139,10 @@ h2 {
     font-size: 16px;
     margin-top: 10px;
     color: #777;
+    text-align: left;
+    line-height: 1.5;
+    text-align: justify;
+    width: 95%;
 }
 
 .event-actions {
@@ -218,6 +230,8 @@ input:focus, textarea:focus {
 textarea {
     resize: none;
     height: 100px;
+    text-align: left;
+    line-height: 1.5;
 }
 
 #imagePreview {
@@ -344,11 +358,13 @@ textarea {
     }
 
     .event-winner {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .event-description {
         font-size: 14px;
+        text-align: left;
+        line-height: 1.5;
     }
 
     .modal-content {
@@ -371,11 +387,13 @@ textarea {
     }
 
     .event-winner {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .event-description {
         font-size: 13px;
+        text-align: left;
+        line-height: 1.5;
     }
 
     .modal-content {
