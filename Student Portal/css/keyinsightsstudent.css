@@ -5,6 +5,8 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #f4f6f9;
     color: #333;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .main-container {

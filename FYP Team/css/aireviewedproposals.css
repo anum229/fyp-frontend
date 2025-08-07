@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f4f6f9;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Main container */

@@ -5,7 +5,7 @@ body {
     padding: 0;
     background-color: #f4f6f9;
     overflow-x: hidden; /* Prevent horizontal overflow */
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 /* Container */
@@ -573,7 +573,6 @@ table .password-column {
 @media (max-width: 576px) {
     .teachers-management-container {
         margin: 20px auto 60px auto;
-        margin-bottom: 25px;
     }
 
     h1 {
@@ -650,7 +649,6 @@ table .password-column {
     .teachers-management-container {
         margin: 20px auto 60px auto;
         width: 95%;
-        margin-bottom: 25px;
     }
 
     h1 {

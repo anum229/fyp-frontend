@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #f4f6f9;
     overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
 }
 
 .evaluation-container {

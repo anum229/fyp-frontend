@@ -4,6 +4,8 @@ body {
     background-color: #f4f7fc;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
