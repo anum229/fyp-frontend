@@ -1,9 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    background-color: #ffffff;
+    overflow: hidden; /* Prevent horizontal overflow */
 }
 
 .loading-spinner {
@@ -200,89 +200,9 @@ body {
     margin-left: 240px;
     margin-top: 100px;
     padding: 20px;
+    padding-bottom: 25px;
     background-color: white;
-    height: calc(100vh - 60px);
-    overflow-y: auto;
-}
-
-.notification-container {
-    position: relative;
-    margin-right: 25px;
-}
-
-.notification-bell {
-    font-size: 24px;
-    cursor: pointer;
-    position: relative;
-}
-
-.notification-dropdown {
-    position: absolute;
-    top: 35px;
-    right: 0;
-    width: 280px;
-    max-height: 400px; /* Set max height to 500px */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: none;
-    z-index: 100;
-}
-
-.notification-dropdown::-webkit-scrollbar {
-    width: 8px;
-}
-
-.notification-dropdown::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 5px;
-}
-
-.notification-dropdown::-webkit-scrollbar-thumb {
-    background: #007bff; /* Updated color */
-    border-radius: 5px;
-}
-
-.notification-dropdown::-webkit-scrollbar-thumb:hover {
-    background: #0056b3; /* Slightly darker on hover */
-}
-
-.notification-dropdown h4 {
-    margin: 0;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 5px 5px 0 0;
-    font-size: 16px;
-}
-
-.notification-dropdown ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.notification-dropdown ul li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.notification-dropdown ul li:last-child {
-    border-bottom: none;
-}
-
-.notification-dropdown ul li p {
-    margin: 0;
-    font-size: 14px;
-}
-
-.notification-dropdown ul li span {
-    font-size: 12px;
-    color: gray;
-    display: block;
-    margin-top: 5px;
+    box-sizing: border-box;
 }
 
 /* Hamburger Menu Icon */
@@ -343,14 +263,6 @@ body {
     .main-content {
         margin-left: 0; /* Adjust main content position */
     }
-
-    .notification-bell{
-        margin-left: 70%;
-    }
-
-    .notification-dropdown{
-        margin-right: -25px;
-    }
 }
 
 @media (max-width: 576px) {
@@ -378,17 +290,6 @@ body {
         font-size: 0.9rem; /* Reduce date font size */
         margin-right: 10%;
     }
-
-    .notification-bell {
-        font-size: 22px;
-        margin-left: 100%;
-    }
-
-    .notification-dropdown {
-        width: 65vw; /* Make dropdown full width */
-        right: -60px; /* Adjust right position */
-        max-height: 340px;
-    }
 }
 
 @media (max-width: 400px) {
@@ -415,16 +316,5 @@ body {
     .date {
         font-size: 0.8rem; /* Further reduce date font size */
         margin-right: 10%;
-    }
-
-    .notification-bell {
-        font-size: 20px;
-        margin-left: 100%;
-    }
-
-    .notification-dropdown {
-        width: 65vw; /* Make dropdown full width */
-        right: -60px; /* Adjust right position */
-        max-height: 320px;
     }
 }

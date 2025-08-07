@@ -3,10 +3,10 @@
 /* ==================== */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
     overflow-y: auto;
 }
 

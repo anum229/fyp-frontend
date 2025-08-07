@@ -3,11 +3,11 @@
 /* ==================== */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f7fc;
     margin: 0;
     padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
     overflow-y: auto;
-    overflow-x: hidden;
 }
 
 /* ==================== */
@@ -20,7 +20,6 @@ body {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-bottom: 100px;
 }
 
 /* ==================== */

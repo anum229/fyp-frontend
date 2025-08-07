@@ -3,14 +3,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f6f9;
-    overflow: hidden;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
 }
 
 /* Container */
 .container {
     width: 80%;
-    margin: 60px auto 120px auto;
+    margin: 60px auto;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
