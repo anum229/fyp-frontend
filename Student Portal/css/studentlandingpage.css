@@ -334,6 +334,8 @@ body {
     font-size: 0.9em;
     line-height: 1.4;
     margin-bottom: 5px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .notification-time {
