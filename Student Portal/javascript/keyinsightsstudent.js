@@ -256,7 +256,7 @@
             taskItem.innerHTML = `
                 <i class="fas fa-tasks"></i>
                 <span class="event-text">${task.title || 'Task'}</span>
-                <span class="event-date">Due: ${formatDateTime(task.dueDate)}</span>
+                <span class="event-date">${formatDateTime(task.dueDate)}</span>
             `;
             eventsContainer.appendChild(taskItem);
         });
