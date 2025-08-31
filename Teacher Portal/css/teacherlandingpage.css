@@ -1,0 +1,471 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+.loading-spinner {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 60px 20px;
+    color: #555;
+    animation: fadeIn 0.3s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.side-panel {
+    width: 240px;
+    background-color: #4A90E2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 900;
+}
+
+.side-panel-menu .list-item {
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.side-panel-menu .list-item:hover {
+    background-color: #3e78c1;
+}
+
+.university-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px; /* Space below the university logo and name */
+}
+
+.university-logo {
+    width: 40px;
+    height: 40px;
+    padding-top: 25px;
+    cursor: pointer;
+}
+
+.university-name {
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    padding-top: 25px;
+}
+
+.side-panel-menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.side-panel .list-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: white;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.side-panel .list-item:hover {
+    background-color: #3e78c1;
+}
+
+.header {
+    background-color: white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 240px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    z-index: 1;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    background-color: #f4f4f4;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect on date */
+}
+
+.date span {
+    color: #4A90E2; 
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-dropdown {
+    position: relative;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-right: 60px; /* Move profile icon to the left */
+}
+
+.profile-options {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    list-style: none;
+    padding: 0px 0;
+    margin: 0;
+    width: 150px;
+    z-index: 10;
+    margin-right: 50px;
+}
+
+.profile-options li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-options li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.profile-options li:hover {
+    background-color: #f4f4f4;
+}
+
+/* Ensure dropdown stays open on hover */
+.profile-dropdown:hover .profile-options,
+.profile-options:hover {
+    display: block;
+}
+
+/* Adjust Profile Dropdown */
+.profile-options li {
+    white-space: nowrap; /* Ensure Change Password is in one line */
+    padding-right: 10px; /* Optional for better appearance */
+}
+
+/* Adjust the height of Header */
+.header {
+    height: 90px; /* Increased header height */
+}
+
+/* Smooth padding after "Change Password" text */
+.profile-options li:nth-child(2) {
+    padding-right: 10px;
+}
+
+/* Add padding to Change Password for a smoother look */
+.profile-options li:nth-child(2) a {
+    padding-right: 10px;
+}
+
+/* Additional Hover Styling for the Profile Dropdown */
+.profile-dropdown:hover .profile-options {
+    display: block;
+}
+
+.main-content {
+    margin-left: 240px;
+    margin-top: 100px;
+    padding: 20px;
+    padding-bottom: 25px;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.notification-container {
+    position: relative;
+    margin-right: 25px;
+}
+
+.notification-bell {
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+}
+
+.notification-dropdown {
+    position: absolute;
+    top: 35px;
+    right: 0;
+    width: 280px;
+    max-height: 400px; /* Set max height to 500px */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 100;
+    overflow-x: hidden;
+}
+
+.notification-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notification-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.notification-dropdown::-webkit-scrollbar-thumb {
+    background: #007bff; /* Updated color */
+    border-radius: 5px;
+}
+
+.notification-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #0056b3; /* Slightly darker on hover */
+}
+
+.notification-dropdown h4 {
+    margin: 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px 5px 0 0;
+    font-size: 16px;
+}
+
+.notification-dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.notification-dropdown ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.notification-dropdown ul li:last-child {
+    border-bottom: none;
+}
+
+.notification-dropdown ul li p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.notification-dropdown ul li span {
+    font-size: 12px;
+    color: gray;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Hamburger Menu Icon */
+.hamburger-icon {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 15px; /* Space between hamburger and date */
+}
+
+.hamburger-icon span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Notification Styling */
+.notification-subject {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.notification-body {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-bottom: 5px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.notification-time {
+    color: #999;
+    font-size: 0.8em;
+    text-align: right;
+    display: block;
+}
+
+.no-notifications {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}
+
+.notification-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+}
+
+.notification-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .side-panel {
+        width: 220px; /* Slightly reduce side panel width */
+    }
+
+    .main-content {
+        margin-left: 220px; /* Adjust main content margin */
+    }
+}
+
+@media (max-width: 992px) {
+    .hamburger-icon {
+        display: flex; /* Show hamburger icon */
+    }
+
+    .side-panel {
+        transform: translateX(-100%); /* Hide side panel by default */
+        transition: transform 0.3s ease;
+        width: 240px; /* Reset width for mobile */
+    }
+
+    .profile-icon{
+        margin-right: 20px;
+    }
+
+    .profile-options{
+        margin-right: 20px;
+    }
+
+    .side-panel.active {
+        transform: translateX(0); /* Show side panel when active */
+    }
+
+    .header {
+        left: 0; /* Adjust header position */
+    }
+
+    .main-content {
+        margin-left: 0; /* Adjust main content position */
+    }
+
+    .notification-bell{
+        margin-left: 70%;
+    }
+
+    .notification-dropdown{
+        margin-right: -25px;
+    }
+}
+
+@media (max-width: 576px) {
+    .university-name {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+
+    .side-panel-menu .list-item {
+        font-size: 0.9rem; /* Reduce font size for menu items */
+    }
+
+    .profile-icon{
+        margin-right: 20px;
+    }
+
+    .profile-options{
+        margin-right: 20px;
+    }
+
+    .header {
+        padding: 10px; /* Reduce header padding */
+    }
+
+    .date {
+        font-size: 0.9rem; /* Reduce date font size */
+        margin-right: 10%;
+    }
+
+    .notification-bell {
+        font-size: 22px;
+        margin-left: 100%;
+    }
+
+    .notification-dropdown {
+        width: 65vw; /* Make dropdown full width */
+        right: -60px; /* Adjust right position */
+        max-height: 340px;
+    }
+}
+
+@media (max-width: 400px) {
+    .university-name {
+        font-size: 12px; /* Further reduce font size for very small screens */
+    }
+
+    .side-panel-menu .list-item {
+        font-size: 0.8rem; /* Further reduce font size for menu items */
+    }
+
+    .profile-icon{
+        margin-right: 20px;
+    }
+
+    .profile-options{
+        margin-right: 20px;
+    }
+
+    .header {
+        padding: 8px; /* Further reduce header padding */
+    }
+
+    .date {
+        font-size: 0.8rem; /* Further reduce date font size */
+        margin-right: 10%;
+    }
+
+    .notification-bell {
+        font-size: 20px;
+        margin-left: 100%;
+    }
+
+    .notification-dropdown {
+        width: 65vw; /* Make dropdown full width */
+        right: -60px; /* Adjust right position */
+        max-height: 320px;
+    }
+}

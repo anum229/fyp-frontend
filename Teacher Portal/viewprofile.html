@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <link rel="stylesheet" href="css/viewprofile.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="../assets/universitylogo.png" alt="University Logo" class="university-logo">
+            <span class="university-name">Sir Syed University of <br> Engineering & Technology</span>
+        </div>
+        <div class="header-right">
+            <span class="date-display" id="current-date"></span>
+            <div class="profile-dropdown">
+                <img src="../assets/profileicon.png" alt="Profile Icon" class="profile-icon">
+                <div class="dropdown-content">
+                    <a href="../login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Back Button -->
+        <button class="back-btn" id="backButton">←</button>
+        
+        <h1 class="heading">View Profile</h1>
+
+        <!-- Individual Teacher Details Section -->
+        <h2 class="sub-heading">Your Details</h2>
+        <div class="student-container">
+            <div class="student-card">
+                <div class="info-item">
+                    <span class="label">Name:</span>
+                    <span class="value" id="teacher-name">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Teacher ID:</span>
+                    <span class="value" id="teacher-id">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Email:</span>
+                    <span class="value" id="teacher-email">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Phone Number:</span>
+                    <span class="value" id="teacher-phone">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Department:</span>
+                    <span class="value" id="teacher-department">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Faculty Type:</span>
+                    <span class="value" id="teacher-faculty-type">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">FYP Member:</span>
+                    <span class="value" id="teacher-fyp-member">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Highest Level of Education:</span>
+                    <span class="value" id="displayEducationLevel">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Field of Study:</span>
+                    <span class="value" id="displayFieldOfStudy">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Expertise:</span>
+                    <span class="value" id="displayExpertise">N/A</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Education & Expertise and Change Password Sections (Inline) -->
+        <div class="inline-container">
+            <!-- Education & Expertise Section -->
+            <div class="education-expertise">
+                <h2 class="sub-heading">Education & Expertise</h2>
+                <div class="info-item">
+                    <label for="educationLevel">Highest Level of Education:</label>
+                    <select id="educationLevel" class="input-field" disabled>
+                        <option value="" disabled selected>Select highest level of education</option>
+                        <option value="BS">Bachelor of Science (BS) in Engineering</option>
+                        <option value="MS">Master of Science (MS) in Engineering</option>
+                        <option value="PhD">Doctor of Philosophy (PhD) in Engineering</option>
+                    </select>
+                </div>
+                <div class="info-item">
+                    <label for="fieldOfStudy">Field of Study:</label>
+                    <select id="fieldOfStudy" class="input-field" disabled>
+                        <option value="" disabled selected>Select field of study</option>
+                    </select>
+                </div>
+                <div class="info-item">
+                    <label for="expertise">Expertise:</label>
+                    <div class="custom-dropdown disabled">
+                        <div class="dropdown-header" onclick="toggleDropdown('expertiseDropdown')">
+                            <span id="expertisePlaceholder">Select Your Area of Expertise</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <div id="expertiseDropdown" class="dropdown-content">
+                            <!-- Checkboxes will be dynamically populated here -->
+                        </div>
+                    </div>
+                    <!-- Selected Expertise Display -->
+                    <div id="selectedExpertise" class="selected-expertise">
+                        <!-- Selected skills will be displayed here dynamically -->
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button id="editBtn" class="edit-btn">Edit</button>
+                    <button id="cancelBtn" class="cancel-btn" style="display: none;">Cancel</button>
+                    <button id="saveBtn" class="save-btn" style="display: none;">Save</button>
+                </div>
+            </div>
+
+            <!-- Change Password Section -->
+            <div class="change-password">
+                <h2 class="sub-heading">Change Password</h2>
+                <div class="info-item">         
+                    <input type="password" class="input-field" id="currentPassword" placeholder="Enter current password" required>
+                </div>
+                <div class="info-item">        
+                    <input type="password" class="input-field" id="newPassword" placeholder="Enter new password" required>
+                </div>
+                <div class="info-item">
+                    <input type="password" class="input-field" id="confirmPassword" placeholder="Confirm new password" required>
+                </div>
+                <button class="change-password-btn" id="changePasswordBtn" type="button">Change Password</button>
+                <div id="passwordChangeMessage" class="message"></div>
+            </div>            
+        </div>
+    </div>
+
+    <script src="javascript/viewprofile.js"></script>
+</body>
+</html>

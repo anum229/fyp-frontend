@@ -1,0 +1,651 @@
+/* Basic styling for the Students Management page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* Container */
+.funded-projects-container {
+    width: 90%; /* Adjusted for smaller screens */
+    margin: 60px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px; /* Default font size */
+    margin-bottom: 20px;
+}
+
+/* Search Bar and Add Student Button */
+.search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#searchBar {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 60%; /* Adjusted for inline display with button */
+    box-sizing: border-box;
+}
+
+#searchBar:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+#addStudentBtn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+#addStudentBtn:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+.table-wrapper {
+    overflow-x: auto; /* Allow horizontal scrolling on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #ddd;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure modal is on top */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%; /* Adjusted for smaller screens */
+    max-width: 400px; /* Limit maximum width */
+    max-height: 80vh; /* Limit height for mobile screens */
+    overflow-y: auto; /* Make modal scrollable if content exceeds height */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #007bff;
+    font-size: 24px; /* Default font size */
+}
+
+.modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 14px; /* Default font size */
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.modal-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; /* Full width for smaller screens */
+    margin-top: 10px; /* Add spacing */
+}
+
+/* Add Students Modal - Save and Cancel Buttons */
+#addStudentModal .modal-content .button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add spacing between buttons */
+    margin-top: 20px;
+}
+
+#addStudentModal .modal-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#addStudentModal .modal-content button#saveStudentBtn {
+    background-color: #007bff;
+    color: white;
+    order: 2; /* Save button on the right */
+}
+
+#addStudentModal .modal-content button#closeModalBtn {
+    background-color: #e74c3c;
+    color: white;
+    order: 1; /* Cancel button on the left */
+}
+
+#saveStudentBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#closeModalBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.actions {
+    cursor: pointer;
+}
+
+.roles-dropdown {
+    height: 30px;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Make space for the eye icon */
+}
+
+.password-container span {
+    position: absolute;
+    right: 10px; /* Position the eye icon towards the right */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #007bff;
+}
+
+/* Bulk Upload Modal */
+#bulkUploadModal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#bulkUploadModal .modal-content h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #007bff; /* Theme color */
+    font-size: 24px;
+}
+
+#bulkUploadModal .modal-content input[type="file"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+#bulkUploadModal .modal-content .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#bulkUploadModal .modal-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; /* Full width for Cancel button */
+}
+
+#bulkUploadModal .modal-content button#closeBulkUploadModalBtn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Add Options Modal */
+#addOptionsModal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#addOptionsModal .modal-content h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #007bff; /* Revert to theme color */
+    font-size: 24px;
+}
+
+#addOptionsModal .modal-content .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#addOptionsModal .modal-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 48%; /* Make buttons inline */
+}
+
+#addOptionsModal .modal-content button#bulkUploadOptionBtn,
+#addOptionsModal .modal-content button#addManuallyOptionBtn {
+    background-color: #007bff;
+    color: white;
+}
+
+#addOptionsModal .modal-content button#closeAddOptionsModalBtn {
+    background-color: #e74c3c;
+    color: white;
+    width: 100%; /* Full width for Cancel button */
+    margin-top: 10px;
+}
+
+/* Add to students.css */
+#uploadCsvBtn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#uploadCsvBtn:hover {
+    background-color: #218838;
+}
+
+#uploadCsvBtn:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .funded-projects-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #searchBar {
+        width: 60%; /* Adjust search bar width */
+    }
+
+    #addStudentBtn {
+        width: auto; /* Reset width for inline display */
+    }
+
+    /* Bulk Upload Modal Responsiveness */
+    #bulkUploadModal .modal-content {
+        width: 90%;
+    }
+
+    /* Add Options Modal Responsiveness */
+    #addOptionsModal .modal-content {
+        width: 90%;
+    }
+
+    #addOptionsModal .modal-content h2 {
+        font-size: 24px;
+    }
+
+    #addOptionsModal .modal-content button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 992px) {
+    .funded-projects-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    /* Bulk Upload Modal Responsiveness */
+    #bulkUploadModal .modal-content {
+        width: 90%;
+    }
+
+    #bulkUploadModal .modal-content h2 {
+        font-size: 22px;
+    }
+
+    #bulkUploadModal .modal-content input[type="file"] {
+        font-size: 14px;
+    }
+
+    #bulkUploadModal .modal-content button {
+        font-size: 14px;
+    }
+
+    /* Add Options Modal Responsiveness */
+    #addOptionsModal .modal-content {
+        width: 90%;
+    }
+
+    #addOptionsModal .modal-content h2 {
+        font-size: 22px;
+    }
+
+    #addOptionsModal .modal-content button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .funded-projects-container {
+        width: 95%;
+        margin: 20px auto 80px auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .search-container {
+        flex-direction: column; /* Stack search bar and button vertically */
+    }
+
+    #searchBar {
+        width: 100%; /* Full width for smaller screens */
+        font-size: 12px; /* Adjusted font size */
+    }
+
+    #addStudentBtn {
+        width: 100%; /* Full width for smaller screens */
+        font-size: 16px; /* Adjusted font size */
+        margin-top: 15px; /* Add spacing */
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .modal-content h2 {
+        font-size: 20px;
+    }
+
+    .modal-content label {
+        font-size: 13px;
+    }
+
+    .modal-content input {
+        font-size: 14px;
+    }
+
+    .modal-content button {
+        font-size: 13px;
+    }
+
+    /* Bulk Upload Modal Responsiveness */
+    #bulkUploadModal .modal-content {
+        width: 90%;
+    }
+
+    #bulkUploadModal .modal-content h2 {
+        font-size: 20px;
+    }
+
+    #bulkUploadModal .modal-content input[type="file"] {
+        font-size: 13px;
+    }
+
+    #bulkUploadModal .modal-content button {
+        font-size: 13px;
+    }
+
+    /* Add Options Modal Responsiveness */
+    #addOptionsModal .modal-content {
+        width: 90%;
+    }
+
+    #addOptionsModal .modal-content h2 {
+        font-size: 20px;
+    }
+
+    #addOptionsModal .modal-content button {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 576px) {
+    .funded-projects-container {
+        margin: 20px auto 60px auto;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    th,
+    td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .modal-content h2 {
+        font-size: 18px;
+    }
+
+    .modal-content label {
+        font-size: 12px;
+    }
+
+    .modal-content input {
+        font-size: 12px;
+    }
+
+    .modal-content button {
+        font-size: 12px;
+    }
+
+    #addStudentBtn {
+        font-size: 13px; /* Adjusted font size */
+        margin-top: 10px; /* Adjusted spacing */
+    }
+
+    #searchBar {
+        font-size: 13px; /* Adjusted font size */
+    }
+
+    /* Bulk Upload Modal Responsiveness */
+    #bulkUploadModal .modal-content {
+        width: 80%;
+    }
+
+    #bulkUploadModal .modal-content h2 {
+        font-size: 18px;
+    }
+
+    #bulkUploadModal .modal-content input[type="file"] {
+        font-size: 12px;
+    }
+
+    #bulkUploadModal .modal-content button {
+        font-size: 12px;
+    }
+
+    /* Add Options Modal Responsiveness */
+    #addOptionsModal .modal-content {
+        width: 80%;
+    }
+
+    #addOptionsModal .modal-content h2 {
+        font-size: 18px;
+    }
+
+    #addOptionsModal .modal-content button {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .funded-projects-container {
+        margin: 20px auto 60px auto;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    th,
+    td {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .modal-content h2 {
+        font-size: 16px;
+    }
+
+    .modal-content label {
+        font-size: 11px;
+    }
+
+    .modal-content input {
+        font-size: 11px;
+    }
+
+    .modal-content button {
+        font-size: 11px;
+    }
+
+    #addStudentBtn {
+        font-size: 12px; /* Adjusted font size */
+        margin-top: 10px; /* Adjusted spacing */
+    }
+
+    #searchBar {
+        font-size: 12px; /* Adjusted font size */
+    }
+
+    /* Bulk Upload Modal Responsiveness */
+    #bulkUploadModal .modal-content {
+        width: 80%;
+    }
+
+    #bulkUploadModal .modal-content h2 {
+        font-size: 16px;
+    }
+
+    #bulkUploadModal .modal-content input[type="file"] {
+        font-size: 11px;
+    }
+
+    #bulkUploadModal .modal-content button {
+        font-size: 11px;
+    }
+
+    /* Add Options Modal Responsiveness */
+    #addOptionsModal .modal-content {
+        width: 80%;
+    }
+
+    #addOptionsModal .modal-content h2 {
+        font-size: 16px;
+    }
+
+    #addOptionsModal .modal-content button {
+        font-size: 11px;
+    }
+}

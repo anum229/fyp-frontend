@@ -1,0 +1,239 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* OTP Container */
+.otp-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.otp-left-section {
+    flex: 7;
+    background: url('../assets/loginbackground4.jpeg') no-repeat center center/cover;
+}
+
+.otp-right-section {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Add this to your existing CSS */
+.back-button {
+    color: #4A90E2;
+    transition: transform 0.2s;
+    position: absolute;
+    top: 260px;
+    left: 22%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+/* Logo */
+.otp-logo img {
+    max-width: 130px;
+    margin-bottom: 30px;
+}
+
+/* Form */
+.otp-form {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.otp-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* OTP Inputs */
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.otp-input {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.otp-input:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+.otp-input:last-child {
+    margin-right: 0;
+}
+
+/* Resend OTP */
+.resend-container {
+    margin-bottom: 20px;
+}
+
+.resend-otp {
+    color: #4A90E2; 
+    cursor: pointer;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.resend-otp.active:hover {
+    text-decoration: underline;
+}
+
+/* Continue Button */
+.otp-continue-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4A90E2;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.otp-continue-button:hover {
+    background-color: #1A3E5F;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .otp-left-section {
+        flex: 6;
+    }
+
+    .otp-right-section {
+        flex: 4;
+    }
+}
+
+@media (max-width: 1024px) {
+    .otp-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .otp-left-section {
+        flex: none;
+        height: 40vh;
+    }
+
+    .otp-right-section {
+        flex: none;
+        height: 60vh;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .otp-left-section {
+        display: none;
+    }
+
+    .otp-right-section {
+        width: 100%;
+        height: 100vh;
+        padding: 40px;
+    }
+
+    .otp-form {
+        max-width: 300px;
+    }
+
+    .otp-logo img {
+        max-width: 100px;
+        margin-bottom: 20px;
+    }
+
+    .otp-form h2 {
+        font-size: 1.5rem;
+    }
+
+    .otp-input {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .otp-continue-button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .otp-right-section {
+        padding: 20px;
+    }
+
+    .otp-form {
+        max-width: 90%;
+    }
+
+    .otp-logo img {
+        max-width: 80px;
+        margin-bottom: 15px;
+    }
+
+    .otp-form h2 {
+        font-size: 1.3rem;
+    }
+
+    .otp-input {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+
+    .otp-continue-button {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .otp-right-section {
+        padding: 15px;
+    }
+
+    .otp-logo img {
+        max-width: 70px;
+        margin-bottom: 10px;
+    }
+
+    .otp-form h2 {
+        font-size: 1.2rem;
+    }
+
+    .otp-input {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+
+    .otp-continue-button {
+        font-size: 0.7rem;
+    }
+}

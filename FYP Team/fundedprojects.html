@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funded/Sponsored Projects</title>
+    <link rel="stylesheet" href="css/fundedprojects.css">
+</head>
+<body>
+    <div class="funded-projects-container">
+        <!-- Heading -->
+        <h1>Funded & Sponsored Projects</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search by Project Title">
+            <button id="addProjectBtn">Add Project</button>
+        </div>
+
+        <!-- Table of Funded Projects -->
+        <div class="table-wrapper">
+            <table id="fundedProjectsTable">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Group ID</th>
+                        <th>Department</th>
+                        <th>Group Members</th>
+                        <th>Project Title</th>
+                        <th>Funded OR Sponsored By</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Project Modal -->
+        <div class="modal" id="addProjectModal">
+            <div class="modal-content">
+                <h2>Add Funded/Sponsored Project</h2>
+                <label for="projectTitle">Project Title:</label>
+                <input type="text" id="projectTitle">
+                <label for="groupID">Group ID:</label>
+                <input type="text" id="groupID">
+                <label for="department">Department:</label>
+                <input type="text" id="department">
+                <label for="groupMembers">Group Members:</label>
+                <input type="text" id="groupMembers" placeholder="Enter names separated by commas">
+                <label for="fundedBy">Funded OR Sponsored By:</label>
+                <input type="text" id="fundedBy">
+                <!-- Wrap Save and Cancel buttons in a container -->
+                <div class="button-container">
+                    <button id="closeModalBtn">Cancel</button>
+                    <button id="saveProjectBtn">Save</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Upload Modal -->
+        <div class="modal" id="bulkUploadModal">
+            <div class="modal-content">
+                <h2 style="color: #007bff;">Bulk Upload</h2>
+                <input type="file" id="csvFileInput" accept=".csv">
+                <p id="selectedFileName" style="margin: 10px 0; font-size: 14px; color: #555;"></p>
+                <div class="button-container">
+                    <button id="closeBulkUploadModalBtn">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Options Modal (Bulk Upload or Add Manually) -->
+        <div class="modal" id="addOptionsModal">
+            <div class="modal-content">
+                <h2 style="color: #007bff;">Add Projects</h2>
+                <div class="button-container">
+                    <button id="bulkUploadOptionBtn">Bulk Upload</button>
+                    <button id="addManuallyOptionBtn">Add Manually</button>
+                </div>
+                <button id="closeAddOptionsModalBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/fundedprojects.js"></script>
+</body>
+</html>

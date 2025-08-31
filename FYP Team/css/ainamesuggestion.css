@@ -1,0 +1,250 @@
+/* Basic styling for the AI Project Name Suggestion page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+p {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+/* Button */
+.btn {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Results Section */
+.results-container {
+    margin-top: 30px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result {
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-left: 4px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.result:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.result:hover {
+    background-color: #eaeaea;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+
+    form,
+    .results-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+        margin: 40px auto 100px auto;
+    }
+
+    form,
+    .results-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .result {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 30px auto 80px auto;
+        padding: 15px;
+        width: 90%;
+    }
+
+    form,
+    .results-container {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    input {
+        font-size: 13px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .result {
+        font-size: 13px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        margin: 20px auto 60px auto;
+        padding: 10px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .result {
+        font-size: 12px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        margin: 10px auto 40px auto;
+        padding: 8px;
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 11px;
+    }
+
+    input {
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    .btn {
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    .result {
+        font-size: 11px;
+        padding: 8px;
+    }
+}

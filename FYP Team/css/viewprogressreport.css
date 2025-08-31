@@ -1,0 +1,238 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* Main Container */
+.container {
+    width: 80%;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.group-id-display {
+    font-weight: bold;
+    margin-top: 8px;
+    color: #333;
+}
+
+.page-header h1 {
+    color: #007bff; /* Theme color */
+    font-size: 24px;
+    margin: 0;
+}
+
+.page-header span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff; /* Theme color */
+}
+
+/* Submitted Reports Section */
+.submitted-reports {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.submitted-reports h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#reports-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#reports-list li {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.report-details {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.download-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Timestamp styling */
+.timestamp {
+    font-size: 14px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+        margin: 40px auto;
+        padding: 15px;
+    }
+
+    .page-header h1 {
+        font-size: 22px;
+    }
+
+    .page-header span {
+        font-size: 16px;
+    }
+
+    .submitted-reports h2 {
+        font-size: 18px;
+    }
+
+    .report-details {
+        font-size: 15px;
+    }
+
+    .timestamp {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 30px auto;
+        padding: 10px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .page-header h1 {
+        font-size: 20px;
+    }
+
+    .page-header span {
+        font-size: 15px;
+    }
+
+    .submitted-reports {
+        padding: 15px;
+    }
+
+    .submitted-reports h2 {
+        font-size: 16px;
+    }
+
+    .report-details {
+        font-size: 14px;
+    }
+
+    .timestamp {
+        font-size: 12px;
+    }
+    .submitted-reports{
+        margin-top: -5%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .page-header h1 {
+        font-size: 18px;
+    }
+
+    .page-header span {
+        font-size: 14px;
+    }
+
+    .submitted-reports h2 {
+        font-size: 15px;
+    }
+
+    .report-details {
+        font-size: 13px;
+    }
+
+    .timestamp {
+        font-size: 11px;
+    }
+
+    #reports-list li {
+        padding: 10px;
+    }
+    .submitted-reports{
+        margin-top: -10%;
+    }
+}
+
+@media (max-width: 400px) {
+    .container{
+        width: 90%;
+    }
+    .page-header h1 {
+        font-size: 16px;
+    }
+
+    .page-header span {
+        font-size: 13px;
+    }
+
+    .submitted-reports h2 {
+        font-size: 14px;
+    }
+
+    .report-details {
+        font-size: 12px;
+    }
+
+    .timestamp {
+        font-size: 10px;
+    }
+    .submitted-reports{
+        margin-top: -10%;
+    }
+}

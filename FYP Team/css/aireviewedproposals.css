@@ -1,0 +1,452 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* Main container */
+.passed-proposals-container {
+    width: 90%;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Search container */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#searchBar:focus {
+    border: 2px solid #007bff;
+    outline: none;
+}
+
+/* Table wrapper */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #ddd;
+}
+
+/* Group member and email styling */
+table td div {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+/* Download link styling */
+.download-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Status container */
+.status-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.help-icon {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 16px;
+    position: relative;
+    top: -2px;
+}
+
+/* Action buttons */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.approve-btn,
+.reject-btn,
+.action-not-available-btn,
+.rejected-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.approve-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.action-not-available-btn,
+.rejected-btn {
+    background-color: #6c757d;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Action status */
+.action-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Email link styling */
+#proposalsTable td:nth-child(5) a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: black;
+}
+
+#feedbackText {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#feedbackText:focus {
+    outline: 2px solid #007bff;
+    width: calc(100% - 4px);
+}
+
+#submitFeedback {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#submitFeedback:hover {
+    background-color: #0056b3;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fetch-proposals-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.loader-modal {
+    text-align: center;
+    padding: 30px;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    z-index: 1000;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .passed-proposals-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+    
+    .fetch-proposals-btn {
+        padding: 8px 16px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .passed-proposals-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .fetch-proposals-btn {
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .loader {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .passed-proposals-container {
+        width: 95%;
+        margin: 20px auto 80px auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #searchBar {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+
+    .fetch-proposals-btn {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .loader {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+    .passed-proposals-container {
+        margin: 20px auto 60px auto;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #searchBar {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .approve-btn, .reject-btn {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .fetch-proposals-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .loader {
+        width: 30px;
+        height: 30px;
+    }
+
+    .loader-modal {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .passed-proposals-container {
+        margin: 20px auto 60px auto;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    #searchBar {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .approve-btn, .reject-btn {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+
+    .fetch-proposals-btn {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+
+    .modal-content {
+        width: 80%;
+    }
+
+    .loader {
+        width: 25px;
+        height: 25px;
+    }
+
+    .loader-modal {
+        padding: 15px;
+    }
+}

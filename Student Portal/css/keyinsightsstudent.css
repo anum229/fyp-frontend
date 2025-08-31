@@ -1,0 +1,229 @@
+/* Teacher Dashboard CSS (keyinsightsteacher.css) */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    color: #333;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.main-container {
+    width: 80%;
+    margin: 50px auto 110px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 30px;
+}
+
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    flex: 1;
+    min-width: 300px;
+}
+
+.card h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card p {
+    margin: 8px 0;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.card .label {
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.card i {
+    color: #007bff;
+    width: 20px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.icon-fixed {
+    font-size: 16px;
+}
+
+/* Upcoming Events Styling */
+.events-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin: 40px auto 0 auto;
+    max-width: 700px;
+}
+
+.events-container h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.events-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.events-container li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.event-text {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.event-date {
+    background: #007bff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 13px;
+    flex-shrink: 0;
+        word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.events-container i {
+    color: #007bff;
+    margin-right: 8px;
+    min-width: 20px;
+}
+
+.card a.pdf-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-left: 30px;
+}
+
+.card a.pdf-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* ==================== */
+/* MOBILE RESPONSIVE STYLES */
+/* ==================== */
+@media (max-width: 768px) {
+    .main-container {
+        width: 95%;
+        margin: 30px auto;
+        padding: 15px;
+    }
+    
+    .card p {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .card .label {
+        display: inline;
+        margin-right: 5px;
+        font-weight: 500;
+    }
+    
+    .card p span:not(.label) {
+        display: inline;
+        margin-left: 0;
+    }
+    
+    .icon-fixed {
+        margin-right: 10px;
+    }
+    
+    .card a.pdf-link {
+        margin-left: 35px; /* Align with text */
+        display: inline-block;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .main-container {
+        width: 95%;
+        border-radius: 0;
+        margin: 0;
+        padding: 15px 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .card h2,
+    .events-container h2 {
+        font-size: 18px;
+    }
+    
+    .card p {
+        font-size: 14px;
+    }
+    
+    .card a.pdf-link {
+        margin-left: 0;
+        display: inline;
+    }
+}
+
+@media (max-width: 400px) {
+    .main-container {
+        width: 95%;
+    }
+    
+    .card p {
+        font-size: 14px;
+    }
+    
+    .event-date {
+        font-size: 12px;
+        padding: 2px 6px;
+    }
+    
+    .card .label {
+        font-size: 14px;
+        min-width: 120px;
+    }
+}

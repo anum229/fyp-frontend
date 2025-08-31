@@ -1,0 +1,424 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+.evaluation-container {
+    width: 90%; /* Adjusted for smaller screens */
+    margin: 60px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px; /* Default font size */
+    margin-bottom: 20px;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease; /* Smooth transition for focus */
+}
+
+#searchBar:focus {
+    border: 2px solid #007bff;
+    outline: none;
+}
+
+/* Table */
+.table-wrapper {
+    overflow-x: auto; /* Allow horizontal scrolling on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #ddd;
+}
+
+/* Group Leader (GL) Tag */
+.gl-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+    vertical-align: middle; /* Align with the text */
+    display: inline-block; /* Ensure it stays inline */
+    flex-shrink: 0; /* Prevent the GL tag from shrinking */
+}
+
+/* Group members and emails styling */
+table td div {
+    margin-bottom: 8px; /* Adjust this value to control the spacing */
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center the GL tag with the text */
+    flex-wrap: nowrap; /* Prevent wrapping of items */
+    white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+.hidden {
+    display: none;
+}
+
+.icon {
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.cancel-icon {
+    color: red;
+}
+
+.save-icon {
+    color: green;
+}
+
+input[type="number"]:disabled {
+    background-color: #f9f9f9;
+    border: none;
+    color: #333;
+}
+
+/* Modal Styling */
+/* Modal Styling */
+.modal {
+    display: none; /* Hide by default */
+    position: fixed; /* Fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by half the width and height to fully center */
+    width: 400px; /* Adjust width as needed */
+    background-color: white;
+    z-index: 1000; /* Ensure it appears on top */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; /* Optional: for rounded corners */
+    max-height: 80vh; /* Limit height for mobile screens */
+    overflow-y: auto; /* Make modal scrollable if content exceeds height */
+    font-smooth: always; /* Improve font rendering */
+    -webkit-font-smoothing: antialiased; /* Improve font rendering on WebKit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS */
+    padding-bottom: 20px;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 999; /* Ensure it appears below the modal but above everything else */
+}
+
+/* Adjust Modal Content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Limit maximum width */
+    box-sizing: border-box;
+    font-smooth: always; /* Improve font rendering */
+    -webkit-font-smoothing: antialiased; /* Improve font rendering on WebKit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Improve font rendering on macOS */
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #007bff;
+    font-size: 24px; /* Default font size */
+    margin-bottom: 20px; /* Add spacing below the heading */
+    font-weight: 600; /* Semi-bold for better visibility */
+}
+
+/* Labels */
+.modal-content label {
+    display: block;
+    margin: 15px 0 8px; /* Increased spacing for better readability */
+    font-size: 16px; /* Slightly larger font size */
+    color: #333; /* Darker text for better contrast */
+    font-weight: 600; /* Semi-bold for better visibility */
+}
+
+/* Input Fields */
+.modal-content input {
+    width: 100%;
+    padding: 12px; /* Increased padding for better touch interaction */
+    margin-bottom: 15px; /* Increased spacing between inputs */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px; /* Larger font size for better readability */
+    color: #333; /* Darker text for better contrast */
+    background-color: #f9f9f9; /* Light background for inputs */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.modal-content input:focus {
+    outline: none;
+    border: 2px solid #007bff; /* Highlight input on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Add a subtle glow effect */
+}
+
+/* Buttons Container */
+.modal-content .button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Add spacing between buttons */
+    margin-top: 15px; /* Add spacing above buttons */
+}
+
+/* Buttons */
+.modal-content button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+    font-weight: 600; /* Semi-bold for better visibility */
+}
+
+#saveMidYearBtn, #saveFinalYearBtn {
+    background-color: #007bff;
+    color: white;
+    order: 2; /* Save button on the right */
+}
+
+#saveMidYearBtn:hover, #saveFinalYearBtn:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+#closeMidYearModalBtn, #closeFinalYearModalBtn {
+    background-color: #e74c3c;
+    color: white;
+    order: 1; /* Close button on the left */
+}
+
+#closeMidYearModalBtn:hover, #closeFinalYearModalBtn:hover {
+    background-color: #c0392b; /* Darker shade on hover */
+}
+
+/* Validation Error Styling */
+.validation-error {
+    color: red;
+    font-size: 14px; /* Slightly larger font size */
+    margin-top: 5px; /* Increased spacing for validation error */
+    display: none;
+}
+
+input:invalid + .validation-error {
+    display: block;
+}
+
+/* Validation Error Styling */
+.validation-error {
+    color: red;
+    font-size: 14px; /* Slightly larger font size */
+    margin-top: 5px; /* Increased spacing for validation error */
+    display: none;
+}
+
+input:invalid + .validation-error {
+    display: block;
+}
+
+/* Supervisor Marks Styling */
+.supervisor-marks {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center; /* Center align supervisor marks */
+}
+
+.supervisor-marks div {
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .evaluation-container {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #searchBar {
+        font-size: 15px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 992px) {
+    .evaluation-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #searchBar {
+        font-size: 16px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .evaluation-container {
+        width: 95%;
+        margin: 20px auto 80px auto;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #searchBar {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .icon {
+        font-size: 16px;
+    }
+
+    .gl-tag {
+        font-size: 11px;
+    }
+
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .evaluation-container {
+        margin: 20px auto 60px auto;
+    }
+
+    .modal {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #searchBar {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .icon {
+        font-size: 14px;
+    }
+
+    .gl-tag {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .evaluation-container {
+        margin: 20px auto 60px auto;
+        width: 95%;
+    }
+
+    .modal {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    #searchBar {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .icon {
+        font-size: 12px;
+    }
+
+    .gl-tag {
+        font-size: 9px;
+    }
+}

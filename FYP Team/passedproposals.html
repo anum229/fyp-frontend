@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passed Proposals</title>
+    <link rel="stylesheet" href="css/passedproposals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="passed-proposals-container">
+        <!-- Heading -->
+        <h1>Approved Proposals</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search by Group ID">
+        </div>
+
+        <!-- Table -->
+        <div class="table-wrapper">
+            <table id="proposalsTable">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Group ID</th>
+                        <th>Project Title</th>
+                        <th>Group Members</th>
+                        <th>Group Leader Email</th>
+                        <th>Proposal Document</th>
+                        <th>Approval Date</th>
+                        <th>Status</th>
+                        <th>AI Suggested Supervisor</th>
+                        <th>Assign Supervisor</th>
+                        <th>Assign Co-Advisor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Supervisor Selection Modal -->
+    <div id="supervisorModal" class="assignment-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Select Supervisor</h2>
+            
+            <div class="modal-search-container">
+                <input type="text" id="modalSearch" placeholder="Search supervisors...">
+            </div>
+            
+            <div class="supervisor-list">
+                <!-- Will be populated dynamically -->
+            </div>
+
+            <div class="modal-actions">
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Co-Advisor Selection Modal -->
+    <div id="coAdvisorModal" class="assignment-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Select Co-Advisor</h2>
+            
+            <div class="modal-search-container">
+                <input type="text" id="coAdvisorSearch" placeholder="Search co-advisors...">
+            </div>
+            
+            <div class="coadvisor-list">
+                <!-- Will be populated dynamically -->
+            </div>
+
+            <div class="modal-actions">
+                <button class="cancel-btn">Cancel</button>
+                <button class="save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/passedproposals.js"></script>
+</body>
+</html>

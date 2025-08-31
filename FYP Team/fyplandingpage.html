@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FYP Dashboard</title>
+    <link rel="stylesheet" href="css/fyplandingpage.css" />
+    <link rel="icon" href="../assets/siteicon.png" type="image/png" />
+</head>
+
+<body>
+    <!-- Side Panel -->
+    <div class="side-panel">
+        <div class="university-info">
+            <img src="../assets/universitylogo.png" alt="University Logo" class="university-logo" id="teacher-landing" />
+            <span class="university-name">Sir Syed University of Engineering & Technology</span>
+        </div>
+        <div class="side-panel-menu">
+            <div class="list-item" id="students">Students</div>
+            <div class="list-item" id="teachers">Teachers</div>
+            <div class="list-item" id="aireviewedproposals">AI Reviewed Proposals</div>
+            <div class="list-item" id="passedproposals">Approved Proposals</div>
+            <div class="list-item" id="schedulemeetings">Schedule Meetings</div>
+            <div class="list-item" id="groupsevaluation">Groups Evaluations</div>
+            <div class="list-item" id="progress-report">Progress Reports</div>
+            <div class="list-item" id="eventsandcompetitions">Events and Competitions</div>
+            <div class="list-item" id="ai-project-suggestion">AI Project Recommender</div>
+            <div class="list-item" id="fundedprojects">Funded & Sponsored Projects</div>
+            <div class="list-item" id="previousbatchfyp">Previous Batch FYPs</div>
+            <div class="list-item" id="createnotification">Create Notification</div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-left">
+            <!-- Add this inside the header-right div, before the notification container -->
+            <div id="hamburger-menu" class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="date" id="current-date"></div>
+        </div>
+        <div class="header-right">
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+                <img src="../assets/profileicon.png" alt="Profile Icon" class="profile-icon" />
+                <ul class="profile-options">
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content" id="main-content">
+        <!-- Default content can go here (e.g., dashboard page or introduction) -->
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="javascript/fyplandingpage.js"></script>
+</body>
+
+</html>

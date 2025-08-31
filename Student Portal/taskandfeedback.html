@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submissions and Feedback</title>
+    <link rel="stylesheet" href="css/taskandfeedback.css">
+</head>
+<body>
+    <div class="container">
+        <h1>My Submissions</h1>
+
+        <div class="search-and-dropdown">
+            <div class="search-bar">
+                <input type="text" id="search-task" placeholder="Search task by title..." />
+                <ul id="search-results"></ul>
+            </div>
+
+            <div class="task-dropdown">
+                <select id="task-dropdown">
+                    <option value="" disabled selected>Select a pending task</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="task-display">
+            <h2>Task Details</h2>
+            <div class="task-card">
+                <h3 id="task-title">No Task Selected</h3>
+                <p><strong>Description:</strong> <span id="task-description">-</span></p>
+                <p><strong>Created On:</strong> <span id="task-created-on">-</span></p>
+                <p><strong>Deadline:</strong> <span id="task-deadline">-</span></p>
+                <p><strong>Status:</strong> <span id="status-label">-</span></p>
+            </div>
+        </section>
+
+        <section class="student-submission">
+            <h2>Submit Your Task</h2>
+            <div class="submission-card">
+                <label for="submission-title">Task Title:</label>
+                <input type="text" id="submission-title" readonly />
+
+                <label for="submission-description">Description:</label>
+                <textarea id="submission-description" placeholder="Add your description here"></textarea>
+
+                <label for="submission-file">Upload File:</label>
+                <input type="file" id="submission-file" accept=".pdf,.doc,.docx,.zip" />
+                <p id="submission-file-name"></p>
+
+                <button id="submit-task-btn">Submit Task</button>
+                <div id="submit-status"></div>
+            </div>
+        </section>
+
+        <section class="completed-tasks">
+            <h2>Completed Tasks 
+                <button id="toggle-completed-tasks">Show Completed Tasks</button>
+            </h2>
+            <div id="completed-tasks-list" class="hidden"></div>
+        </section>
+    </div>
+
+    <script src="javascript/taskandfeedback.js"></script>
+</body>
+</html>

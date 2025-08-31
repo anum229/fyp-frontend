@@ -1,0 +1,240 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* Main Container (Keeps Background Consistent) */
+.evaluation-marks-container {
+    width: 80%;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 50px;
+}
+
+/* Flexbox Layout for Cards */
+.evaluation-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Card Style */
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 48%;
+}
+
+/* Headings */
+.card h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* Info Row Style */
+.info-row, .mark-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-row:last-child, .mark-row:last-child {
+    border-bottom: none;
+}
+
+/* Styling for Group Members List */
+.group-members {
+    padding-left: 20px;
+    margin: 5px 0;
+    color: #007bff;
+}
+
+.group-members li {
+    margin-bottom: 5px;
+}
+
+/* Styling for Labels and Values */
+strong {
+    color: #333;
+}
+
+span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Styling for Scores */
+.score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745; /* Green for scores */
+}
+
+/* Marks Breakdown Styling */
+.mark-breakdown {
+    margin-top: 10px;
+    padding-left: 20px;
+    border-left: 2px solid #007bff;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    color: #555;
+}
+
+.breakdown-row strong {
+    color: #333;
+}
+
+.breakdown-row span {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .evaluation-marks-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .evaluation-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .card {
+        width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    .evaluation-marks-container {
+        width: 90%;
+        margin: 30px auto;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .info-row, .mark-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .group-members {
+        padding-left: 15px;
+    }
+
+    /* Ensure scores stay next to headings */
+    .mark-row {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .mark-row strong {
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+
+    .mark-row .score {
+        margin-left: 10px; /* Adds space between label and score */
+    }
+}
+
+@media (max-width: 576px) {
+    .evaluation-marks-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;;
+    }
+
+    .card {
+        width: 88%;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin-bottom: 40px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .score {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .evaluation-marks-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .card {
+        width: 86%;
+        margin: 0 auto; /* Center the card horizontally */
+    }
+
+    h1 {
+        font-size: 20px; /* Slightly smaller for very small screens */
+        margin-bottom: 35px;
+    }
+
+    .card h2 {
+        font-size: 16px; /* Slightly smaller for very small screens */
+    }
+
+    .score {
+        font-size: 14px; /* Slightly smaller for very small screens */
+    }
+
+    .group-members {
+        padding-left: 10px; /* Reduce padding for very small screens */
+    }
+
+    /* Ensure scores stay next to headings on very small screens */
+    .mark-row {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .mark-row strong {
+        white-space: nowrap; /* Prevents text from wrapping */
+    }
+
+    .mark-row .score {
+        margin-left: 10px; /* Adds space between label and score */
+    }
+}

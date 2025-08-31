@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Key Insights</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/keyinsightsteacher.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1>Key Insights</h1>
+
+        <div class="content-wrapper">
+            <div class="top-section">
+                <!-- Personal Details Section -->
+                <div class="card">
+                    <h2><i class="fas fa-chalkboard-teacher"></i> Personal Details</h2>
+                    <p><i class="fas fa-user-tie icon-fixed"></i> <span class="label">Name:</span> <span id="teacher-name"></span></p>
+                    <p><i class="fas fa-id-badge icon-fixed"></i> <span class="label">Teacher ID:</span> <span id="teacher-id"></span></p>
+                    <p><i class="fas fa-building icon-fixed"></i> <span class="label">Department:</span> <span id="teacher-department"></span></p>
+                    <p><i class="fas fa-user-shield icon-fixed"></i> <span class="label">Faculty Type:</span> <span id="teacher-faculty-type"></span></p>
+                    <p><i class="fas fa-users-cog icon-fixed"></i> <span class="label">FYP Committee Member:</span> <span id="teacher-fyp-member"></span></p>
+                    <p><i class="fas fa-graduation-cap icon-fixed"></i> <span class="label">Qualification:</span> <span id="teacher-qualification"></span></p>
+                    <p><i class="fas fa-envelope icon-fixed"></i> <span class="label">Email:</span> <span id="teacher-email"></span></p>
+                    <p><i class="fas fa-phone icon-fixed"></i> <span class="label">Contact Number:</span> <span id="teacher-contact"></span></p>
+                </div>
+
+                <!-- Group Details Section -->
+                <div class="card">
+                    <h2><i class="fas fa-users"></i> Group Details</h2>
+                    <p><i class="fas fa-fingerprint icon-fixed"></i> <span class="label">Group Supervising:</span> <span id="group-id"></span></p>
+                    <p><i class="fas fa-lightbulb icon-fixed"></i> <span class="label">Project Title:</span> <span id="project-title"></span></p>
+                    <p><i class="fas fa-file-alt icon-fixed"></i> <span class="label">Approved Proposal:</span> <a id="proposal-link" class="pdf-link" download></a></p>
+                    <p><i class="fas fa-user-friends icon-fixed"></i> <span class="label">Group Members:</span> <span id="group-members"></span></p>
+                    <p><i class="fas fa-user-circle icon-fixed"></i> <span class="label">Group Leader Email:</span> <span id="group-leader-email"></span></p>
+                    <p><i class="fas fa-hands-helping icon-fixed"></i> <span class="label">Group Co-Advising:</span> <span id="group-co-advisor"></span></p>
+                </div>
+            </div>
+
+            <!-- Upcoming Events Section -->
+            <div class="events-container">
+                <h2><i class="fas fa-calendar-alt"></i> Upcoming Events</h2>
+                <ul>
+                    <!-- Events will be dynamically inserted here by JavaScript -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/keyinsightsteacher.js"></script>
+</body>
+</html>

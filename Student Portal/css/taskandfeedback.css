@@ -1,0 +1,258 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+.container {
+    width: 80%;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 120px;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.search-and-dropdown {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.search-bar {
+    width: 65%;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    display: none;
+}
+
+.search-bar ul li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.search-bar ul li:hover {
+    background-color: #f1f1f1;
+}
+
+.task-dropdown {
+    width: 30%;
+}
+
+.task-dropdown select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.task-dropdown select:focus {
+    border: 2px solid #007bff; /* Theme color on focus */
+    outline: none;
+}
+
+.task-display, .student-submission, .completed-tasks {
+    margin-bottom: 40px;
+}
+
+.task-card, .submission-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.task-card h3, .submission-card h2 {
+    color: #333;
+}
+
+.task-card p, .submission-card label {
+    margin: 8px 0;
+}
+
+input[type="text"], textarea, input[type="file"] {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 98.5%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#status-label {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#task-deadline {
+    font-weight: bold;
+    color: red;
+}
+
+input[type="text"]:disabled, textarea:disabled {
+    background-color: #e9ecef;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+#task-created-on {
+    font-weight: bold;
+    color: green;
+}
+
+.completed-tasks h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.completed-tasks button {
+    width: auto;
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.completed-task-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.completed-task-item h4 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.completed-task-item p {
+    margin: 5px 0;
+}
+
+.completed-task-item .file-link {
+    color: #007bff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.completed-task-item .file-link:hover {
+    color: #0056b3;
+}
+
+/* Style for file links */
+.file-link {
+    color: #007bff; /* Theme color */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer; /* Change cursor to pointer */
+    font-weight: bold; /* Make it bold */
+}
+
+/* Hover effect for file links */
+.file-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+        margin: 40px auto;
+        margin-bottom: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .task-card, .submission-card {
+        padding: 10px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input[type="text"], textarea, input[type="file"] {
+        width: 95%;
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Marks</title>
+    <link rel="stylesheet" href="css/evaluationmarks.css">
+</head>
+<body>
+    <div class="evaluation-marks-container">
+        <h1>Evaluation Marks</h1>
+
+        <div class="evaluation-container">
+            <!-- Group Details Card -->
+            <div class="card group-card">
+                <h2>Group Details</h2>
+                <div class="info-row"><strong>Group ID:</strong> <span id="group-id">Loading...</span></div>
+                <div class="info-row"><strong>Project Title:</strong> <span id="project-title">Loading...</span></div>
+                
+                <div class="info-row"><strong>Group Members:</strong></div>
+                <ul class="group-members" id="group-members">
+                    <li>Loading...</li>
+                </ul>
+
+                <div class="info-row"><strong>Assigned Teacher:</strong> <span id="assigned-teacher">Loading...</span></div>
+                <div class="info-row"><strong>Proposal Status:</strong> <span id="proposal-status">Loading...</span></div>
+            </div>
+
+            <!-- Student Marks Card -->
+            <div class="card marks-card">
+                <h2>Your Marks</h2>
+                <div class="mark-row"><strong>Student Name:</strong> <span id="student-name">Loading...</span></div>
+                <div class="mark-row"><strong>Roll Number:</strong> <span id="roll-number">Loading...</span></div>
+
+                <!-- Mid-Year Evaluation Marks -->
+                <div class="mark-row"><strong>📊 Mid-Year Evaluation:</strong> <span class="score" id="mid-year-total">Loading...</span></div>
+                <div class="mark-breakdown" id="mid-year-breakdown">
+                    <div class="breakdown-row"><strong>Presentation:</strong> <span id="mid-presentation">Loading...</span></div>
+                    <div class="breakdown-row"><strong>SRS Report:</strong> <span id="mid-srs">Loading...</span></div>
+                    <div class="breakdown-row"><strong>Poster:</strong> <span id="mid-poster">Loading...</span></div>
+                    <div class="breakdown-row"><strong>Progress Sheet:</strong> <span id="mid-progress">Loading...</span></div>
+                </div>
+                <div class="evaluation-status" id="mid-year-status"></div>
+
+                <!-- Final Year Evaluation Marks -->
+                <div class="mark-row"><strong>✅ Final Year Evaluation:</strong> <span class="score" id="final-year-total">Loading...</span></div>
+                <div class="mark-breakdown" id="final-year-breakdown">
+                    <div class="breakdown-row"><strong>Report:</strong> <span id="final-report">Loading...</span></div>
+                    <div class="breakdown-row"><strong>Presentation:</strong> <span id="final-presentation">Loading...</span></div>
+                </div>
+                <div class="evaluation-status" id="final-year-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="javascript/evaluationmarks.js"></script>
+</body>
+</html>

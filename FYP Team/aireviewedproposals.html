@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Reviewed Proposals</title>
+    <link rel="stylesheet" href="css/aireviewedproposals.css">
+</head>
+<body>
+    <div class="passed-proposals-container">
+        <div class="header-container">
+            <h1>AI Reviewed Proposals</h1>
+            <button id="fetchProposalsBtn" class="fetch-proposals-btn">Fetch Proposals</button>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search by Group ID">
+        </div>
+
+        <div class="table-wrapper">
+            <table id="proposalsTable">
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Group ID</th>
+                        <th>Project Title</th>
+                        <th>Group Members</th>
+                        <th>Group Leader Email</th>
+                        <th>Proposal Document</th>
+                        <th>AI Reviewed Date</th>
+                        <th>AI Reviewed Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enter Feedback</h2>
+            <textarea id="feedbackText" placeholder="Provide your feedback here..."></textarea>
+            <button id="submitFeedback">Submit</button>
+        </div>
+    </div>
+
+    <div id="loaderModal" class="modal">
+        <div class="modal-content loader-modal">
+            <div class="loader"></div>
+            <p>Please wait while we are looking for any new proposals...</p>
+        </div>
+    </div>
+
+    <script src="javascript/aireviewedproposals.js"></script>
+</body>
+</html>

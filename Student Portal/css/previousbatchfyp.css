@@ -1,0 +1,239 @@
+/* Basic styling for the Funded Projects page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* Container */
+.funded-projects-container {
+    width: 80%;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+/* Search Bar Styles */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#searchBar {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#searchBar:focus {
+    outline: none;
+    border: 2px solid #007bff;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+    width: 100%; /* Ensure it takes the full width */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    margin-top: 20px;
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Table takes full width of its container */
+    min-width: 800px; /* Minimum width to ensure table structure */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #f2f2f2;
+}
+
+tr:hover td {
+    background-color: #ddd;
+}
+
+/* Group Member GL Styling */
+.gl-tag {
+    background-color: #007bff;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+    vertical-align: middle; /* Aligns the GL tag vertically with the text */
+    display: inline-block; /* Ensures it stays inline with the text */
+}
+
+/* Group Member Names Container */
+table td div {
+    margin-bottom: 8px; /* Adjust this value to control the spacing */
+    display: flex; /* Use flexbox to align items horizontally */
+    align-items: center; /* Vertically center the GL tag with the text */
+}
+
+td.roll-numbers {
+    text-align: left;
+    padding: 12px;
+    white-space: pre-line; /* This makes the <br> tags work properly */
+}
+
+td.roll-numbers br {
+    display: block; /* Ensures proper line breaks */
+    content: ""; /* Removes any default spacing */
+    margin-bottom: 6px; /* Space between roll numbers */
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .funded-projects-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .funded-projects-container {
+        width: 90%;
+        margin: 40px auto;
+        padding: 15px;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    #searchBar {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .gl-tag {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    .funded-projects-container {
+        width: 90%;
+        margin: 30px auto;
+        padding: 10px;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #searchBar {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    th, td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .gl-tag {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .funded-projects-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+        margin-bottom: 100px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #searchBar {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    th, td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .gl-tag {
+        font-size: 9px;
+    }
+
+    table td div {
+        margin-bottom: 6px; /* Reduce spacing for smaller screens */
+    }
+}
+
+@media (max-width: 400px) {
+    .funded-projects-container {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+        margin-bottom: 100px;
+    }
+    
+    h1 {
+        font-size: 18px;
+    }
+
+    #searchBar {
+        font-size: 11px;
+        padding: 5px;
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 11px;
+    }
+
+    .gl-tag {
+        font-size: 8px;
+    }
+
+    table td div {
+        margin-bottom: 5px; /* Further reduce spacing for very small screens */
+    }
+}

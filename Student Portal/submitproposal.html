@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Proposal</title>
+    <link rel="stylesheet" href="css/submitproposal.css" />
+</head>
+<body>
+    <div class="submit-proposal-container">
+        <h1>Submit Proposal</h1>
+
+        <!-- Instructions and Guideline -->
+        <h2>Instructions and Guideline</h2>
+        <ul class="instructions">
+            <li><i>Ensure your proposal is in PDF format.</i></li>
+            <li><i>Provide all required fields in the proposal form.</i></li>
+            <li><i>The proposal should be well-structured and clear.</i></li>
+            <li><i>Contact the FYP team if you face any issues with submission.</i></li>
+        </ul>
+
+        <!-- Submit Your Proposal Heading -->
+        <h2>Submit Your Proposal</h2>
+
+        <!-- Project Title Input -->
+        <div class="project-title-section">
+            <label for="project-title">Project Title:</label>
+            <input type="text" id="project-title" placeholder="Enter Project Title" required />
+        </div>
+
+        <!-- File Upload Section -->
+        <div class="file-upload-section">
+            <label for="file-upload">Choose File (PDF only):</label>
+            <input type="file" id="file-upload" accept=".pdf" onchange="displayFileName()" />
+            <p id="file-name">No file selected</p>
+        </div>
+
+        <!-- Submit Button Section -->
+        <button id="submit-button" onclick="confirmSubmission()">Submit Proposal</button>
+
+        <!-- Status Display -->
+        <div class="status">
+            <h4>Status: <span id="status">Pending</span></h4>
+        </div>
+
+        <!-- FYP Team Feedback Section -->
+        <div class="feedback-section">
+            <h3>FYP Team Feedback</h3>
+            <p id="feedback">No feedback yet.</p>
+        </div>
+    </div>
+
+    <script src="javascript/submitproposal.js"></script>
+</body>
+</html>

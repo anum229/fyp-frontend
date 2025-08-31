@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Notification</title>
+    <link rel="stylesheet" href="css/createnotification.css">
+</head>
+<body>
+    <div class="notificationcontainer">
+        <h1>Create Notification</h1>
+
+        <form id="notificationForm">
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="Enter notification subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="body">Body</label>
+                <textarea id="body" name="body" rows="5" placeholder="Enter notification body" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="studentCheckbox" name="recipient" value="student">
+                <label for="studentCheckbox">Students</label>
+            </div>
+
+            <div class="form-group">
+                <input type="checkbox" id="teacherCheckbox" name="recipient" value="teacher">
+                <label for="teacherCheckbox">Teachers</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="create-btn">Create Notification</button>
+            </div>
+        </form>
+
+        <h2>Past Notifications 
+            <button id="toggleNotificationsBtn" class="toggle-btn">Show Past Notifications</button>
+        </h2>
+        <div id="pastNotificationsContainer" class="past-notifications hidden">
+            <!-- Past notifications will appear here -->
+        </div>
+    </div>
+
+    <script src="javascript/createnotification.js"></script>
+</body>
+</html>

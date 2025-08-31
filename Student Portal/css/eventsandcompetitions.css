@@ -1,0 +1,217 @@
+/* ==================== */
+/* GENERAL STYLES */
+/* ==================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    overflow-y: auto;
+}
+
+/* ==================== */
+/* MAIN CONTAINER */
+/* ==================== */
+.container {
+    width: 80%;
+    margin: 60px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+/* ==================== */
+/* HEADING */
+/* ==================== */
+.page-heading {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+/* ==================== */
+/* EVENTS SECTIONS */
+/* ==================== */
+.events-section, .past-events-section {
+    margin: 30px 0;
+}
+
+h2 {
+    color: #333;
+    font-size: 24px;
+    margin-top: 20px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* ==================== */
+/* EVENT CARDS */
+/* ==================== */
+.event-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-image {
+    flex: 0 0 150px;
+    margin-right: 20px;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.event-details {
+    flex: 1;
+}
+
+.event-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-date, .event-venue, .event-time {
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+}
+
+.event-winner {
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+.event-winner strong {
+    color: #555;
+}
+
+.event-winner span {
+    color: #28a745;
+}
+
+.event-description {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #777;
+    text-align: left;
+    line-height: 1.5;
+    text-align: justify;
+    width: 95%;
+}
+
+/* ==================== */
+/* RESPONSIVE DESIGN */
+/* ==================== */
+@media (max-width: 1200px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        width: 95%;
+    }
+
+    .event-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+        margin: 30px auto;
+    }
+
+    .page-heading {
+        font-size: 24px;
+    }
+
+    .event-title {
+        font-size: 18px;
+    }
+
+    .event-date, .event-venue {
+        font-size: 13px;
+    }
+
+    .event-winner {
+        font-size: 12px;
+    }
+
+    .event-description {
+        font-size: 14px;
+        text-align: left;
+        line-height: 1.5;
+        text-align: justify;
+        width: 95%;
+    }
+
+
+}
+
+@media (max-width: 400px) {
+    .page-heading {
+        font-size: 22px;
+    }
+
+    .event-title {
+        font-size: 16px;
+    }
+
+    .event-date, .event-venue {
+        font-size: 12px;
+    }
+
+    .event-winner {
+        font-size: 11px;
+    }
+
+    .event-description {
+        font-size: 13px;
+        text-align: left;
+        line-height: 1.5;
+        text-align: justify;
+        width: 95%;
+    }
+
+
+}

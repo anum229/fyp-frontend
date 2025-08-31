@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/viewprofile.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="../assets/universitylogo.png" alt="University Logo" class="university-logo">
+            <span class="university-name">Sir Syed University of <br> Engineering & Technology</span>
+        </div>
+        <div class="header-right">
+            <span class="date-display" id="current-date"></span>
+                <div class="profile-dropdown">
+                    <div class="dropdown-trigger">
+                        <img src="../assets/profileicon.png" alt="Profile Icon" class="profile-icon">
+                        <div class="dropdown-content">
+                            <a href="../login.html">Logout</a>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Back Button -->
+        <button class="back-btn" id="backButton">←</button>
+        
+        <h1 class="heading">View Profile</h1>
+
+        <h2 class="sub-heading">Your Details</h2>
+        <div class="student-container">
+            <div class="student-card">
+                <div class="info-item">
+                    <span class="label">Name:</span>
+                    <span class="value" id="fullName">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Batch:</span>
+                    <span class="value" id="batch">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Department:</span>
+                    <span class="value" id="department">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Roll Number:</span>
+                    <span class="value" id="rollNumber">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Email:</span>
+                    <span class="value" id="email">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Student Role:</span>
+                    <span class="value" id="studentRole">N/A</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Group Information Section & Change Password Section (In-line) -->
+        <div class="info-container">
+            <!-- Group Information Section -->
+            <div class="group-info">
+                <h2 class="sub-heading">Group Information</h2>
+                <div class="info-item">
+                    <span class="label">Group ID:</span>
+                    <span class="value" id="groupId">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Project Title:</span>
+                    <span class="value" id="projectTitle">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Group Leader Email:</span>
+                    <span class="value" id="groupLeaderEmail">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Group Members Roll Numbers:</span>
+                    <span class="value" id="groupMembers">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Assigned Teacher:</span>
+                    <span class="value" id="assignedTeacher">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Assigned Co-Advisor:</span>
+                    <span class="value" id="assignedCoAdvisor">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Project Status:</span>
+                    <span class="value" id="projectStatus">N/A</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Project Proposal:</span>
+                    <a id="proposalLink" class="value pdf-link">N/A</a>
+                </div>
+            </div>
+    
+            <!-- Change Password Section -->
+            <div class="change-password">
+                <h2 class="sub-heading">Change Password</h2>
+                <div class="info-item">         
+                    <input type="password" class="input-field" id="currentPassword" placeholder="Enter current password" required>
+                </div>
+                <div class="info-item">        
+                    <input type="password" class="input-field" id="newPassword" placeholder="Enter new password" required>
+                </div>
+                <div class="info-item">
+                    <input type="password" class="input-field" id="confirmPassword" placeholder="Confirm new password" required>
+                </div>
+                <button class="change-password-btn" id="changePasswordBtn" type="button">Change Password</button>
+                <div id="passwordChangeMessage" class="message"></div>
+            </div>            
+        </div>
+    </div>
+
+    <script src="javascript/viewprofile.js"></script>
+</body>
+</html>

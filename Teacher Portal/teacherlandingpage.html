@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="css/teacherlandingpage.css" />
+    <link rel="icon" href="../assets/siteicon.png" type="image/png" />
+</head>
+<body>
+    <!-- Side Panel -->
+    <div class="side-panel">
+        <div class="university-info">
+            <img src="../assets/universitylogo.png" alt="University Logo" class="university-logo" id="teacher-landing" />
+            <span class="university-name">Sir Syed University of Engineering & Technology</span>
+        </div>
+        <div class="side-panel-menu">
+            <div class="list-item" id="submissionsandfeedback">Create & Assign Task</div>
+            <div class="list-item" id="submitprogressreport">Progress Report</div>
+            <div class="list-item" id="evaluationmarks">Evaluation Marks</div>
+            <div class="list-item" id="schedulemeetings">Schedule Meetings</div>
+            <div class="list-item" id="eventsandcompetitions">Events and Competitions</div>
+            <div class="list-item" id="funded-projects">Funded & Sponsored Projects</div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="header-left">
+                                            <!-- Add this inside the header-right div, before the notification container -->
+                                            <div id="hamburger-menu" class="hamburger-icon">
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                            </div>
+            <div class="date" id="current-date"></div>
+        </div>
+        <div class="header-right">
+            <!-- Notification Bell -->
+            <div class="notification-container">
+                <div class="notification-bell" id="notificationBell">🔔</div>
+                <div class="notification-dropdown" id="notificationDropdown">
+                    <h4>Recent Notifications</h4>
+                    <ul>
+                        <!-- Will be populated dynamically by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+                <img src="../assets/profileicon.png" alt="Profile Icon" class="profile-icon" />
+                <ul class="profile-options">
+                    <li><a href="viewprofile.html">View Profile</a></li>
+                    <li><a href="#" id="logoutBtn">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="main-content" id="main-content">
+        <!-- Default content can go here (e.g., dashboard page or introduction) -->
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="javascript/teacherlandingpage.js"></script>
+</body>
+</html>
