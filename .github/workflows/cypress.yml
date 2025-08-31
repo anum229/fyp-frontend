@@ -21,10 +21,10 @@ jobs:
         with:
           node-version: 18
 
-      # Install dependencies (Cypress + static server + Netlify CLI)
+      # Install dependencies (Cypress + static server)
       - name: Install dependencies
         run: |
-          npm install --save-dev cypress http-server netlify-cli
+          npm install --save-dev cypress http-server
 
       # Start static server (repo root -> http://localhost:8080)
       - name: Start server
@@ -52,12 +52,3 @@ jobs:
             cypress/screenshots
             cypress/videos
             cypress/reports
-
-      # Deploy to Netlify (only if Cypress tests pass)
-      - name: Deploy to Netlify
-        if: success()   # ✅ runs only if all previous steps passed
-        run: |
-          npx netlify deploy --prod --dir=./ --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN --yes
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
